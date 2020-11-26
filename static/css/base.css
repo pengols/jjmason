@@ -2,3 +2,17 @@ html {
     height: 100%;
 }
 
+.navbar {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar a {
+    color: black;
+}
+
+.logo-row {
+    margin: 0;
+}
