@@ -8,13 +8,20 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+header {
+    position: sticky;
+  top: 0;
+  z-index: 2000;
+  background-color: white;
+}
+
 .navbar {
     font-family: 'IM Fell English', serif;
     font-size: 1.4rem;
     border-top: 3px solid black;
     border-bottom: 3px solid black;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
 }
 
 .navbar a {
