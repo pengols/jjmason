@@ -13,11 +13,30 @@
 <!-- <div class="row">
   <div class="col-12 my-auto mx-auto"> -->
   <div class="container">
+  {% for product in products %}
+  {% if product.category|stringformat:"s" == 'books' %}
     <div class="row">
-        <div class="col">
-            {{ products }}
+<div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <img class="" src="//placehold.it/200" alt="sans" width="200px">
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text">{{product.description}}</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        {% else %}
+        {{product.name}}
+        {% endif %}
+    {% endfor %}
   </div>
 
 {% endblock %}
