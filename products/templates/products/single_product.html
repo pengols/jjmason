@@ -13,7 +13,6 @@
 <!-- <div class="row">
   <div class="col-12 my-auto mx-auto"> -->
   <div class="container">
-  {% for product in products %}
   {% if product.category|stringformat:"s" == 'books' %}
     <div class="row">
 <div class="col">
@@ -22,13 +21,9 @@
                     <div class="row">
                         <div class="col-sm-6 text-center">
                         {% if product.image %}
-                        <a href="{% url 'single_product' product.id %}">
                             <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
-                            </a>
                         {% else %}
-                        <a href="{% url 'single_product' product.id %}">
                         <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                        </a>
                         {% endif %}
                         </div>
                         <div class="col-sm-6">
@@ -44,7 +39,6 @@
         {% else %}
         {{product.name}}
         {% endif %}
-    {% endfor %}
   </div>
 
 {% endblock %}
