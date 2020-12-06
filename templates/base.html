@@ -67,17 +67,25 @@
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'products' %}">Books</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Things
+        </a>
+        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                <a href="{% url 'products' %}?category=books" class="dropdown-item">Books</a>
+                <a href="{% url 'products' %}?category=paintings" class="dropdown-item ">Paintings</a>
+                <a href="{% url 'products' %}?category=postcards" class="dropdown-item ">Postcards</a>
+                <a href="{% url 'products' %}?category=books,paintings,postcards" class="dropdown-item">All Products</a>
+            </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Search
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu" aria-labelledby="searchDropdown">
           <form method="GET" action="{% url 'products' %}" class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
