@@ -7,7 +7,7 @@ from .models import Product
 
 
 def all_products(request):
-    """ returns products page and searche results"""
+    """ returns products page and search results"""
 
     products = Product.objects.all()
     query = None
@@ -19,7 +19,7 @@ def all_products(request):
                 messages.error(request, "You need to enter something")
                 return redirect(reverse('products'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(publisher__icontains=query) | Q(illustrator__icontains=query) | Q(isbn__icontains=query) | Q(original_author__icontains=query)
             products = products.filter(queries)
 
     context = {
