@@ -9,6 +9,14 @@
 {% endblock %}
 
 {% block content %}
-
-
+<div class="row">
+    <div class="col">
+        {% if cart_items %}
+            <div class="table"></div>
+        {% else %}
+            <p>Yourbag has nothing</p>
+            <a href="{ url 'products' }">go back</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
