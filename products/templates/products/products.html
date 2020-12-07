@@ -13,6 +13,11 @@
 <!-- <div class="row">
   <div class="col-12 my-auto mx-auto"> -->
   <div class="container">
+  <div class="row">
+    <div class="col">
+
+    </div>
+  </div>
   {% for product in products %}
   {% if product.category|stringformat:"s" == 'books' %}
     <div class="row">
@@ -21,105 +26,109 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-6 text-center">
-                        {% if product.image %}
-                        <a href="{% url 'single_product' product.id %}">
-                            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
-                            </a>
-                        {% else %}
-                        <a href="{% url 'single_product' product.id %}">
-                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                        </a>
-                        {% endif %}
+                            {% if product.image %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
+                                </a>
+                            {% else %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
+                                </a>
+                            {% endif %}
                         </div>
                         <div class="col-sm-6">
                             <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.description}}</p>
+                                <p class="card-text">{{product.description}}</p>
                             <a href="#" class="btn btn-primary">add to basket</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         {% else %}
         {% if product.category|stringformat:"s" == 'paintings' %}
         <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6 text-center">
-                                {% if product.image %}
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            {% if product.image %}
                                 <a href="{% url 'single_product' product.id %}">
-                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
+                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
                                 </a>
                             {% else %}
-                        <a href="{% url 'single_product' product.id %}">
-                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                        </a>
-                        {% endif %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
+                                </a>
+                            {% endif %}
                         </div>
                         <div class="col-sm-6">
                             <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.description}}</p>
+                                <p class="card-text">{{product.description}}</p>
                             <a href="#" class="btn btn-primary">add to basket</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         {% else %}
         {% if product.category|stringformat:"s" == 'postcards' %}
         <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6 text-center">
-                                {% if product.image %}
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            {% if product.image %}
                                 <a href="{% url 'single_product' product.id %}">
-                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
+                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
                                 </a>
                             {% else %}
-                        <a href="{% url 'single_product' product.id %}">
-                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                        </a>
-                        {% endif %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
+                                </a>
+                            {% endif %}
                         </div>
                         <div class="col-sm-6">
                             <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.description}}</p>
+                                <p class="card-text">{{product.description}}</p>
                             <a href="#" class="btn btn-primary">add to basket</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         {% else %}
         <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6 text-center">
-                                {% if product.image %}
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            {% if product.image %}
                                 <a href="{% url 'single_product' product.id %}">
-                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
+                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
                                 </a>
                             {% else %}
-                        <a href="{% url 'single_product' product.id %}">
-                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                        </a>
-                        {% endif %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
+                                </a>
+                            {% endif %}
                         </div>
                         <div class="col-sm-6">
                             <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.description}}</p>
+                                <p class="card-text">{{product.description}}</p>
                             <a href="#" class="btn btn-primary">add to basket</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         {% endif %}
         {% endif %}
         {% endif %}
