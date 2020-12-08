@@ -72,10 +72,10 @@
           Things
         </a>
         <div class="dropdown-menu" aria-labelledby="productsDropdown">
-                <a href="{% url 'products' %}?category=books" class="dropdown-item">Books</a>
-                <a href="{% url 'products' %}?category=paintings" class="dropdown-item ">Paintings</a>
-                <a href="{% url 'products' %}?category=postcards" class="dropdown-item ">Postcards</a>
-                <a href="{% url 'products' %}?category=books,paintings,postcards" class="dropdown-item">All Products</a>
+                <a href="{% url 'products' %}?category=books&sort=name&direction=asc" class="dropdown-item">Books</a>
+                <a href="{% url 'products' %}?category=paintings&sort=name&direction=asc" class="dropdown-item ">Paintings</a>
+                <a href="{% url 'products' %}?category=postcards&sort=name&direction=asc" class="dropdown-item ">Postcards</a>
+                <a href="{% url 'products' %}?category=books,paintings,postcards&sort=name&direction=asc" class="dropdown-item">All Products</a>
             </div>
       </li>
       <li class="nav-item">
