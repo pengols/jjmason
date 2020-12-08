@@ -74,7 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media', #fixes {{MEDIA_URL}} images not showing
-                'cart.contexts.cart_contents',
+                'cart.contexts.cart_contents', # allows cart to viewed across all pages and apps
             ],
         },
     },
