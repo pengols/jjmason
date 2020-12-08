@@ -29,6 +29,9 @@
                         <div class="col-sm-6">
                             <h5 class="card-title">{{product.name}}</h5>
                             <p class="card-text">{{product.description}}</p>
+                            {% if product.category %}
+                                <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
+                                {% endif %}
                             <a href="#" class="btn btn-primary">add to basket</a>
                         </div>
                         
