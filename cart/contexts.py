@@ -12,14 +12,26 @@ def cart_contents(request):
     # grand_total = delivery + total
 
     for item_id, quantity in cart.items():
-        product = get_object_or_404(Product, pk=item_id)
-        total += quantity * product.price
-        product_count += quantity
-        cart_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'product': product,
-        })
+        if isinstance(quantity, int):
+            product = get_object_or_404(Product, pk=item_id)
+            total += quantity * product.price
+            product_count += quantity
+            cart_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+            })
+        else:
+            product = get_object_or_404(Product, pk=item_id)
+            for print_size, quantity in quantity['items_by_size'].items():
+                total += quantity * product.price
+                product_count += quantity
+                cart_items.append({
+                'item_id': item_id,
+                'quantity': quantity,
+                'product': product,
+                'print_size': print_size,
+            })
 
     context = {
         'cart_items': cart_items,

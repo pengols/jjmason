@@ -23,16 +23,19 @@
                     {% endif %}
                 </td>
                 <td>
-                    {{ item.product.name }}
+                    name:{{ item.product.name }}
                 </td>
                 <td>
-                    £{{ item.product.price }}
+                    size:{% if item.product.print_sizes %}{{ item.print_size }}{% else %}N/A{% endif %}
                 </td>
                 <td>
-                    {{ item.quantity }}
+                    price: £{{ item.product.price }}
                 </td>
                 <td>
-                    £{{ item.product.price }}
+                    qty: {{ item.quantity }}
+                </td>
+                <td>
+                    sub-total: £{{ item.product.price }}
                 </td>
             </tr>
             {% endfor %}

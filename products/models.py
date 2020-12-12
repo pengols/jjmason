@@ -23,6 +23,7 @@ class Product(models.Model):
     illustrator = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
+    print_sizes = models.BooleanField(null=True, blank=True, default=False)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     isbn = models.DecimalField(max_digits=12, decimal_places=0,null=True, blank=True)
     language = models.CharField(max_length=254, null=True, blank=True)
