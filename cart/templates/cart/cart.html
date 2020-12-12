@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load static %}
 
 {% block page_header %}
-    <!-- <div class="container header-container">
+<!-- <div class="container header-container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -12,12 +12,50 @@
 <div class="row">
     <div class="col">
         {% if cart_items %}
-            <div class="table">
-                {{ cart_items }}
-            </div>
+        <div class="table">
+            {% for item in cart_items %}
+            <tr>
+                <td>
+                    {% if product.image %}
+                    <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}" width="200px">
+                    {% else %}
+                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
+                    {% endif %}
+                </td>
+                <td>
+                    {{ item.product.name }}
+                </td>
+                <td>
+                    £{{ item.product.price }}
+                </td>
+                <td>
+                    {{ item.quantity }}
+                </td>
+                <td>
+                    £{{ item.product.price }}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="5" class="pt-5 text-right">
+                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                    <h4 class="mt-4"><strong>Grand Total: ${{ total|floatformat:2 }}</strong></h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                        <span>Keep Shopping</span>
+                    </a>
+                    <a href="" class="btn">
+                        <span>Secure Checkout</span>
+                    </a>
+                </td>
+            </tr>
+        </div>
         {% else %}
-            <p>Your bag has nothing</p>
-            <a href="{% url 'products' %}">go back</a>
+        <p>Your bag has nothing</p>
+        <a href="{% url 'products' %}">go back</a>
         {% endif %}
     </div>
 </div>
