@@ -27,11 +27,11 @@ def cart_contents(request):
                 total += quantity * product.price
                 product_count += quantity
                 cart_items.append({
-                'item_id': item_id,
-                'quantity': quantity,
-                'product': product,
-                'print_size': print_size,
-            })
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'print_size': print_size,
+                })
 
     context = {
         'cart_items': cart_items,

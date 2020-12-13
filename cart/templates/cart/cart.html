@@ -12,8 +12,11 @@
 <div class="row">
     <div class="col">
         {% if cart_items %}
+        
         <div class="table">
             {% for item in cart_items %}
+            <div class="row">
+            <div class="col">
             <tr>
                 <td>
                     {% if product.image %}
@@ -37,7 +40,10 @@
                 <td>
                     sub-total: £{{ item.product.price }}
                 </td>
+                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-print_size="{{ item.print_size }}"><small>Remove</small></a>
             </tr>
+        </div>
+            </div>
             {% endfor %}
             <tr>
                 <td colspan="5" class="pt-5 text-right">
@@ -45,6 +51,7 @@
                     <h4 class="mt-4"><strong>Grand Total: ${{ total|floatformat:2 }}</strong></h4>
                 </td>
             </tr>
+            
             <tr>
                 <td>
                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
@@ -62,4 +69,20 @@
         {% endif %}
     </div>
 </div>
+
+<script type="text/javascript">
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var print_size = $(this).data('print_size');
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'print_size': print_size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}

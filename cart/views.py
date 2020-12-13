@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, HttpResponse
 
 # Create your views here.
 
@@ -35,3 +35,26 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+def remove_from_cart(request, item_id):
+    """Remove the item from the shopping bag"""
+
+    try:
+        print_size = None
+        if 'print_size' in request.POST:
+            print_size = request.POST['print_size']
+        cart = request.session.get('cart', {})
+
+        if print_size:
+            del cart[item_id]['items_by_size'][print_size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+        else:
+            cart.pop(item_id)
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
