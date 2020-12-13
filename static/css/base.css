@@ -31,3 +31,7 @@ header {
 .logo-row {
     margin: 0;
 }
+
+.message-container {
+    z-index: 99999999999999999;
+}
