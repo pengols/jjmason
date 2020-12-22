@@ -6,8 +6,6 @@ from django.conf import settings
 
 from products.models import Product
 
-# Create your models here.
-
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -21,37 +19,33 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    # delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    # grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
+    def _generate_order_number(self):
+        """
+        Generate a random, unique order number using UUID
+        """
+        return uuid.uuid4().hex.upper()
 
-def _generate_order_number(self):
-    """
-    Generates random order number using UUID
-    """
-    return uuid.uuid4().hex.upper()
+    def update_total(self):
+        """
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
+        """
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.save()
 
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the order number
+        if it hasn't been set already.
+        """
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
 
-def update_total(self):
-    """
-    Updates order total each time a new line is added
-    """
-    self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
-    self.save()
-
-
-def save(self, *args, **kwargs):
-    """
-    overrides default save method to add order number if one does not exist
-    """
-    if not self.order_number:
-        self.order_number = self._generate_order_number()
-    super().save(*args, **kwargs)
-
-
-def __str__(self):
-    return self.order_number
+    def __str__(self):
+        return self.order_number
 
 
 class OrderLineItem(models.Model):
@@ -63,7 +57,8 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        overrides default save method to add order number if one does not exist
+        Override the original save method to set the lineitem total
+        and update the order total.
         """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
