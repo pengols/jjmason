@@ -63,6 +63,10 @@
                                 <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                                 {% endif %}
                             <a href="#" class="btn btn-primary">add to basket</a>
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a href="{% url 'delete_product' product.id %}">Delete</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -94,6 +98,10 @@
                                 <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                                 {% endif %}
                             <a href="#" class="btn btn-primary">add to basket</a>
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a href="{% url 'delete_product' product.id %}">Delete</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -125,6 +133,10 @@
                                 <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                                 {% endif %}
                             <a href="#" class="btn btn-primary">add to basket</a>
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a href="{% url 'delete_product' product.id %}">Delete</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -155,6 +167,10 @@
                                 <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                                 {% endif %}
                             <a href="#" class="btn btn-primary">add to basket</a>
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a href="{% url 'delete_product' product.id %}">Delete</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
