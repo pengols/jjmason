@@ -73,7 +73,25 @@ header {
 }
 
 .jumbotron h1 {
-    font-family: 'IM Fell English', serif;;
+    font-family: 'IM Fell English', serif;
+}
+
+/* product cards */
+
+.product-card {
+    margin-bottom: 10px;
+    border-radius: 0px;
+    padding-top: 10px;
+}
+
+.product-card:hover{
+    box-shadow: 3px 3px 3px rgb(211, 211, 211);    
+    transform: scale(1.01);
+
+}
+
+.product-card h4 {
+    font-family: 'IM Fell English', serif;
 }
 
 
