@@ -1,218 +1,117 @@
 {% extends "base.html" %} {% load static %}
 
-{% block page_header %}
-    <!-- <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div> -->
-{% endblock %}
-
 {% block content %}
 
-<!-- <div class="row">
-  <div class="col-12 my-auto mx-auto"> -->
-  <div class="container">
-<div class="row">
-            <div class="col-10 offset-1">
-                <div class="row mt-1 mb-2">
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="sort-select-wrapper w-50">
-                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}{% endif %}">
-                                <option value="reset" {% if sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                                <option value="price_asc" {% if sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                                <option value="price_desc" {% if sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                                <option value="name_asc" {% if sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                                <option value="name_desc" {% if sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                                <option value="category_asc" {% if sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                                <option value="category_desc" {% if sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
-                            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'products' %}">Reset</a> | </span>
-                            {% endif %}
-                            {{ products|length }} items{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                        </p>
-                    </div>
-                </div>
-  {% for product in products %}
-  {% if product.category|stringformat:"s" == 'books' %}
+<div class="container">
     <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6 text-center">
-                            {% if product.image %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% endif %}
-                        </div>
-                        <div class="col-sm-6">
-                            <h5 class="card-title">{{product.name}}</h5>
-                                <p class="card-text">{{product.description}}</p>
-                                {% if product.category %}
-                                <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
-                                {% endif %}
-                            <a href="#" class="btn btn-primary">add to basket</a>
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'edit_product' product.id %}">Edit</a>
-                            <a href="{% url 'delete_product' product.id %}">Delete</a>
-                            {% endif %}
-                        </div>
+        <div class="col-10 offset-1">
+            <div class="row mt-1 mb-2">
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector"
+                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}{% endif %}">
+                            <option value="reset" {% if sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if sorting == 'price_asc' %}selected{% endif %}>Price (low to
+                                high)</option>
+                            <option value="price_desc" {% if sorting == 'price_desc' %}selected{% endif %}>Price (high
+                                to low)</option>
+                            <option value="name_asc" {% if sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)
+                            </option>
+                            <option value="name_desc" {% if sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)
+                            </option>
+                            <option value="category_asc" {% if sorting == 'category_asc' %}selected{% endif %}>Category
+                                (A-Z)</option>
+                            <option value="category_desc" {% if sorting == 'category_desc' %}selected{% endif %}>
+                                Category (Z-A)</option>
+                        </select>
                     </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'products' %}">Reset</a> | </span>
+                        {% endif %}
+                        {{ products|length }} items{% if search_term %} found for
+                        <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-        {% else %}
-        {% if product.category|stringformat:"s" == 'paintings' %}
         <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6 text-center">
-                            {% if product.image %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% endif %}
-                        </div>
-                        <div class="col-sm-6">
-                            <h5 class="card-title">{{product.name}}</h5>
-                                <p class="card-text">{{product.description}}</p>
-                                {% if product.category %}
-                                <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
-                                {% endif %}
-                            <a href="#" class="btn btn-primary">add to basket</a>
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'edit_product' product.id %}">Edit</a>
-                            <a href="{% url 'delete_product' product.id %}">Delete</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        {% else %}
-        {% if product.category|stringformat:"s" == 'postcards' %}
-        <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6 text-center">
-                            {% if product.image %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% endif %}
-                        </div>
-                        <div class="col-sm-6">
-                            <h5 class="card-title">{{product.name}}</h5>
-                                <p class="card-text">{{product.description}}</p>
-                                {% if product.category %}
-                                <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
-                                {% endif %}
-                            <a href="#" class="btn btn-primary">add to basket</a>
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'edit_product' product.id %}">Edit</a>
-                            <a href="{% url 'delete_product' product.id %}">Delete</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        {% else %}
-        <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-6 text-center">
-                            {% if product.image %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% else %}
-                                <a href="{% url 'single_product' product.id %}">
-                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                                </a>
-                            {% endif %}
-                        </div>
-                        <div class="col-sm-6">
-                            <h5 class="card-title">{{product.name}}</h5>
-                                <p class="card-text">{{product.description}}</p>
-                                {% if product.category %}
-                                <a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
-                                {% endif %}
-                            <a href="#" class="btn btn-primary">add to basket</a>
-                            {% if request.user.is_superuser %}
-                            <a href="{% url 'edit_product' product.id %}">Edit</a>
-                            <a href="{% url 'delete_product' product.id %}">Delete</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        {% endif %}
-        {% endif %}
-        {% endif %}
-    {% endfor %}
-  </div>
+            {% for product in products %}
 
-{% endblock %}
+            <div class="col col-md-6 col-lg-6 col-xl-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6 text-center">
+                                {% if product.image %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"
+                                        width="200px">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'single_product' product.id %}">
+                                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"
+                                        width="200px">
+                                </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="card-title">{{product.name}}</h5>
+                                <p class="card-text">{{product.description}}</p>
+                                {% if product.category %}
+                                <a
+                                    href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
+                                {% endif %}
+                                <a href="#" class="btn btn-primary">add to basket</a>
+                                {% if request.user.is_superuser %}
+                                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                                <a href="{% url 'delete_product' product.id %}">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
 
-{% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
+
+        {% endfor %}
+        </div>
+
+
+        {% endblock %}
+
+        {% block postloadjs %}
+        {{ block.super }}
+        <!-- <script type="text/javascript">
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
-	</script>
-    
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+	</script> -->
 
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+        <script type="text/javascript">
+            $('#sort-selector').change(function () {
+                var selector = $(this);
+                var currentUrl = new URL(window.location);
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+                var selectedVal = selector.val();
+                if (selectedVal != "reset") {
+                    var sort = selectedVal.split("_")[0];
+                    var direction = selectedVal.split("_")[1];
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+                    currentUrl.searchParams.set("sort", sort);
+                    currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
-{% endblock %}
+                    window.location.replace(currentUrl);
+                } else {
+                    currentUrl.searchParams.delete("sort");
+                    currentUrl.searchParams.delete("direction");
+
+                    window.location.replace(currentUrl);
+                }
+            })
+        </script>
+        {% endblock %}

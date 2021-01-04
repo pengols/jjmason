@@ -13,6 +13,8 @@ header {
     top: 0;
     z-index: 2000;
     background-color: white;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .logo-row {
@@ -63,6 +65,18 @@ header {
 .message-container {
     z-index: 99999999999999999;
 }
+
+.jumbotron {
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 0;
+}
+
+.jumbotron h1 {
+    font-family: 'IM Fell English', serif;;
+}
+
+
 
 /* Product form */
 

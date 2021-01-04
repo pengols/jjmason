@@ -58,17 +58,17 @@
             </div>
             <div class="col-md-4 my-auto">
                 <div class="text-right">
-                    <a href="https://www.instagram.com/jeremyjmason48/?hl=en-gb" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram social-logo-row"></i>
+                    <a href="https://www.instagram.com/jeremyjmason48/?hl=en-gb" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-instagram social-logo-row"></i>
                     </a>
                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-facebook social-logo-row"></i>
+                        <i class="fab fa-facebook social-logo-row"></i>
                     </a>
                 </div>
             </div>
         </div>
         <nav class="navbar navbar-expand-md">
-            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -77,9 +77,6 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto nav-fill w-100">
-                    <!-- <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
@@ -137,11 +134,12 @@
                     </li>
                     <li class="nav-item list-inline-item">
                         <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
-                            href="{% url 'view_cart' %}"><i class="fas fa-shopping-basket"><span class="nav-cart-total">{% if total %}
-                                ${{ total|floatformat:2 }}
-                                {% else %}
-                                £0.00
-                                {% endif %}</span></i></a>
+                            href="{% url 'view_cart' %}"><i class="fas fa-shopping-basket"><span
+                                    class="nav-cart-total">{% if total %}
+                                    ${{ total|floatformat:2 }}
+                                    {% else %}
+                                    £0.00
+                                    {% endif %}</span></i></a>
                     </li>
                 </ul>
             </div>
