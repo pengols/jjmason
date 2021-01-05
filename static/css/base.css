@@ -62,9 +62,35 @@ header {
     margin-bottom: 6px;
 }
 
+/* toasts */
+
 .message-container {
     z-index: 99999999999999999;
+    position: fixed;
+    top: 155px;
+    right: 30px;
 }
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-success{
+    background-color: rgb(126, 236, 126);
+}
+
+.toast-warning{
+    background-color: rgb(222, 224, 92);
+}
+
+.toast-error{
+    background-color: rgb(209, 62, 62);
+}
+
+.toast-info{
+    background-color: rgb(67, 168, 199);
+}
+
 
 .jumbotron {
     color: #ffffff;
