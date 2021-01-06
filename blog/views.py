@@ -8,7 +8,7 @@ def post_list(request):
 
     context = {
         'post_list': post_list,
-        'blog_page': 'active',
+        
     }
 
     return render(request, 'blog/blog.html', context)
