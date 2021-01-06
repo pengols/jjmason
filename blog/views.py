@@ -1,3 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import BlogPost
+from profiles.models import UserProfile
 
-# Create your views here.
+
+def PostList(request):
+    post_list = BlogPost.objects.filter(status=1).order_by('-post_created')
+
+    context = {
+        'post_list': post_list,
+        'blog_page': 'active',
+    }
+
+    return render(request, 'blog/blog.html', context)
+
+
