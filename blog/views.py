@@ -3,7 +3,7 @@ from .models import BlogPost
 from profiles.models import UserProfile
 
 
-def PostList(request):
+def post_list(request):
     post_list = BlogPost.objects.filter(status=1).order_by('-post_created')
 
     context = {
