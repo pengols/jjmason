@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Open+Sans:wght@400;700;800&display=swap');
 
+* {
+    margin: 0;
+}
+
 html {
     height: 100%;
 }
@@ -60,6 +64,21 @@ header {
 
 .logo-desc {
     margin-bottom: 6px;
+}
+
+/* about section */
+
+.about-row {
+    /* background-image: url('../../media/J&Jabout.jpg') green repeat-y; */
+    /* background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 50%;
+    background-color: #77AB6E; */
+    background:blue url('../../media/J&Jabout.jpg') repeat-y;
+    background-size: 60% 40% auto;
+    width: 100%;
+    height:400px;
+    padding: 15px;
 }
 
 /* toasts */
