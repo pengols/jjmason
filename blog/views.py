@@ -21,7 +21,17 @@ def post_list(request):
 
 def add_post(request):
     """adds new blog post"""
-    form = BlogForm()
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'new blog post added')
+            return redirect(reverse('add_post'))
+        else:
+            messages.error(request, 'Post not added - check the form for errors')
+    else:
+        form = BlogForm()
+
     template = 'blog/add_post.html'
     context = {
         'form': form,
