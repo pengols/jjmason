@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Blog management</h2>
+            <h5>Add Blog post</h5>
+            <hr>
+        </div>
+    </div>
+<div class="row">
+        <div class="col">
+            <form method="POST" action="{% url 'add_post' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+            {{ form | crispy }}
+            <div>
+                <a class="btn" href="{% url 'blog' %}">cancel</a>
+                <button class="btn" type="submit">Add post</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
+    
+
+{% endblock %}
+
