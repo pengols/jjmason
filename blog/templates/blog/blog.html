@@ -9,7 +9,16 @@
                 <h2 class="card-title">{{ post.post_title }}</h2>
                 <p class="card-text">{{ post.post_author }} | {{ post.post_created}} </p>
                 <p class="card-text">{{post.content}}</p>
-
+                    {% if request.user.is_superuser %}
+                    <div>
+                    <div>
+                            <a href="{% url 'edit_post' post.id %}">Edit</a>
+                        </div>
+                        <div class="col">
+                            <a href="{% url 'delete_post' post.id %}">Delete</a>
+                        </div>
+                    </div>
+                    {% endif %}
             </div>
         </div>
         {% endfor %}
