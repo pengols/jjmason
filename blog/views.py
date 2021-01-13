@@ -41,10 +41,19 @@ def add_post(request):
 
 
 def edit_post(request, post_id):
-    """edits blog post"""
+    """edit blog post"""
     post = get_object_or_404(BlogPost, pk=post_id)
-    form = BlogForm(instance=post)
-    messages.info(request, f'you are editing {post.post_title}')
+    if request.method == 'POST':
+        form = BlogForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'successfully edited blog post')
+            return redirect(reverse('blog'))
+        else:
+            messages.error(request, 'failed to update - please check form')
+    else:
+        form = BlogForm(instance=post)
+        messages.info(request, f'you are editing {post.post_title}')
 
     template = 'blog/edit_post.html'
     context = {
