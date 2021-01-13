@@ -62,3 +62,11 @@ def edit_post(request, post_id):
     }
 
     return render(request, template, context)
+
+
+def delete_post(request, post_id):
+    """deletes blog post"""
+    post = get_object_or_404(BlogPost, pk=post_id)
+    post.delete()
+    messages.success(request, f'you have deleted {post.post_title}')
+    return redirect(reverse('blog'))
