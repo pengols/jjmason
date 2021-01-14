@@ -28,7 +28,8 @@ def add_post(request):
             messages.success(request, 'new blog post added')
             return redirect(reverse('add_post'))
         else:
-            messages.error(request, 'Post not added - check the form for errors')
+            messages.error(request,
+                           'Post not added - check the form for errors')
     else:
         form = BlogForm()
 
