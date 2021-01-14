@@ -55,7 +55,8 @@ class StripeWH_Handler:
         shipping_details = intent.shipping
         order_total = round(intent.charges.data[0].amount / 100, 2)
 
-        # Clean data in shipping details if field is blank as Stripe will apply empty string to DB rather than null value
+        # Clean data in shipping details if field is blank
+        # as Stripe will apply empty string to DB rather than null value
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
