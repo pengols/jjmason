@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% load static %}
 
 {% block content %}
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -10,21 +11,18 @@
             <hr>
         </div>
     </div>
-<div class="row">
+    <div class="row">
         <div class="col">
-            <form method="POST" action="{% url 'add_post' %}" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'add_post' %}" enctype="multipart/form-data" class="form">
                 {% csrf_token %}
-            {{ form | crispy }}
-            <div>
-                <a class="btn" href="{% url 'blog' %}">cancel</a>
-                <button class="btn" type="submit">Add post</button>
-            </div>
+                {{ form | crispy }}
+                <div>
+                    <a class="btn" href="{% url 'blog' %}">cancel</a>
+                    <button class="btn" type="submit">Add post</button>
+                </div>
             </form>
         </div>
     </div>
-    
 </div>
-    
 
 {% endblock %}
-

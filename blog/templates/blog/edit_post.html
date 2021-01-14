@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% load static %}
 
 {% block content %}
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -10,27 +11,24 @@
             <hr>
         </div>
     </div>
-<div class="row">
+    <div class="row">
         <div class="col">
             <form method="POST" action="{% url 'edit_post' post.id %}" enctype="multipart/form-data" class="form">
                 {% csrf_token %}
-            {% for field in form %}
-                {% if field.name != 'image' %}
-                    {{ field | as_crispy_field }}
-                {% else %}
-                    {{ field }}
-                {% endif %}
-            {% endfor %}
-            <div>
-                <a class="btn" href="{% url 'blog' %}">cancel</a>
-                <button class="btn" type="submit">Edit post</button>
-            </div>
+                {% for field in form %}
+                    {% if field.name != 'image' %}
+                        {{ field | as_crispy_field }}
+                    {% else %}
+                        {{ field }}
+                    {% endif %}
+                {% endfor %}
+                <div>
+                    <a class="btn" href="{% url 'blog' %}">cancel</a>
+                    <button class="btn" type="submit">Edit post</button>
+                </div>
             </form>
         </div>
     </div>
-    
 </div>
-    
 
 {% endblock %}
-
