@@ -2,6 +2,7 @@
 
 
 {% block content %}
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -11,23 +12,22 @@
             <hr>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% for field in form %}
-                {% if field.name != 'image' %}
-                    {{ field | as_crispy_field }}
-                {% else %}
-                    {{ field }}
-                {% endif %}
-            {% endfor %}
-            <a class="btn" href="{% url 'products' %}">Cancel</a>
-            <button class="btn" type="submit">Update product</button>
+                {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                <a class="btn" href="{% url 'products' %}">Cancel</a>
+                <button class="btn" type="submit">Update product</button>
             </form>
+        </div>
     </div>
-</div>
 </div>
 
 {% endblock %}
