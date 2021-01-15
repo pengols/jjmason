@@ -12,6 +12,15 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+.jumbotron h1,
+.product-card h4,
+.single-card-title,
+.nav-cart-total,
+.navbar,
+.blog-title {
+    font-family: 'IM Fell English', serif;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -43,8 +52,6 @@ header {
 }
 
 .navbar {
-    font-family: 'IM Fell English', serif;
-    /* font-size: 1.4rem; */
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding-top: 0;
@@ -57,7 +64,6 @@ header {
 }
 
 .nav-cart-total {
-    font-family: 'IM Fell English', serif;
     font-size: 1.4rem;
     font-weight: 600;
 }
@@ -117,9 +123,7 @@ header {
     border-radius: 0;
 }
 
-.jumbotron h1 {
-    font-family: 'IM Fell English', serif;
-}
+
 
 /* product cards */
 
@@ -135,10 +139,6 @@ header {
 
 }
 
-.product-card h4 {
-    font-family: 'IM Fell English', serif;
-}
-
 /* single product */
 
 .single-product-card {
@@ -146,10 +146,7 @@ header {
     border: none;
 }
 
-.single-card-title {
-    font-family: 'IM Fell English', serif;
 
-}
 
 /* Product form */
 
@@ -169,5 +166,11 @@ header {
 }
 
 
+/* blog */
+
+.blog-title {
+    font-size: 3.4rem;
+    margin-top: 30px;
+}
 
 /* media queries */

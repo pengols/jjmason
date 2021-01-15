@@ -4,26 +4,83 @@
 
 <div class="container">
     <div class="row">
-        {% for post in post_list %}
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">{{ post.post_title }}</h2>
-                <p class="card-text">{{ post.post_author }} | {{ post.post_created}} </p>
-                <p class="card-text">{{post.content}}</p>
-                {% if request.user.is_superuser %}
-                <div>
-                    <div>
-                        <a href="{% url 'edit_post' post.id %}">Edit</a>
-                    </div>
-                    <div class="col">
-                        <a href="{% url 'delete_post' post.id %}">Delete</a>
-                    </div>
+        <div class="col">
+            <h2 class="text-center blog-title">I think good</h2>
+            <hr>
+        </div>
+    </div>
+    {% for post in post_list %}
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="row">
+        <div class="col-sm-4">
+            {% if post.image %}
+            <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}" width="500px">
+            {% else %}
+            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}" width="500px">
+            {% endif %}
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col text-center">
+                    <h2>{{ post.post_title }}</h2>
+                    <hr>
                 </div>
-                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <p>{{ post.post_content }}</p>
+                </div>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% if request.user.is_superuser %}
+    <div>
+        <div>
+            <a href="{% url 'edit_post' post.id %}">Edit</a>
+        </div>
+        <div class="col">
+            <a href="{% url 'delete_post' post.id %}">Delete</a>
+        </div>
+    </div>
+    {% endif %}
+    <hr>
+    {% else %}
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col text-center">
+                    <h2>{{ post.post_title }}</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <p>{{ post.post_content }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            {% if post.image %}
+            <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}" width="500px">
+            {% else %}
+            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}" width="500px">
+            {% endif %}
+        </div>
+        
+    </div>
+    {% if request.user.is_superuser %}
+    <div>
+        <div>
+            <a href="{% url 'edit_post' post.id %}">Edit</a>
+        </div>
+        <div class="col">
+            <a href="{% url 'delete_post' post.id %}">Delete</a>
+        </div>
+    </div>
+    {% endif %}
+    <hr>
+    {% endif %}
+    {% endfor %}
 </div>
 
 {% endblock %}
