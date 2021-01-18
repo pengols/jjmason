@@ -3,46 +3,43 @@
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <div class="row blog-title-row">
         <div class="col">
             <h2 class="text-center blog-title">I think good</h2>
             <hr>
         </div>
     </div>
     {% for post in post_list %}
-    <div class="row">
-        <div class="col-md-4">
+    <div class="row blog-post-row">
+        <div class="col-md-7 blog-post-img">
             {% if post.image %}
-            <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}" width="500px">
+            <a href="{{ post.image.url }}" target="_blank">
+            <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}" width="500px"></a>
             {% else %}
             <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}" width="500px">
             {% endif %}
         </div>
-        <div class="col-md-8">
+        <div class="col-md-5">
             <div class="row">
                 <div class="col text-center">
                     <h2>{{ post.post_title }}</h2>
                     <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
                     <p>{{ post.post_content }}</p>
                 </div>
             </div>
         </div>
-    </div>
-    {% if request.user.is_superuser %}
-    <div>
-        <div>
-            <a href="{% url 'edit_post' post.id %}">Edit</a>
+        {% if request.user.is_superuser %}
+    <div class="row">
+        <div class="col-sm-6 d-flex justify-content-center">
+            <a class="btn" href="{% url 'edit_post' post.id %}">Edit</a>
         </div>
-        <div class="col">
-            <a href="{% url 'delete_post' post.id %}">Delete</a>
+        <div class="col-sm-6 d-flex justify-content-center">
+            <a class="btn" href="{% url 'delete_post' post.id %}">Delete</a>
         </div>
     </div>
     {% endif %}
-    <hr>
+    </div>
+    
     
     {% endfor %}
 </div>

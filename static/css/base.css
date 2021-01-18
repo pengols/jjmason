@@ -201,9 +201,24 @@ header {
 
 /* blog */
 
+.blog-title-row {
+    margin-bottom: 50px;
+}
+
 .blog-title {
     font-size: 3.4rem;
     margin-top: 30px;
+}
+
+.blog-post-row {
+    margin-bottom: 50px;
+    border: 1px solid black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.blog-post-img {
+    /* padding: 40px; */
 }
 
 /* media queries */
