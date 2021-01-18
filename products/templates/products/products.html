@@ -44,7 +44,7 @@
             <div class="card product-card hover-zoom">
                 <h4 class="card-title text-center">{{product.name}}</h4>
                 {% if product.image %}
-                <a class="text-center" href="{% url 'single_product' product.id %}">
+                <a class="text-center href="{% url 'single_product' product.id %}">
                     <img class="img-fluid center-block" src="{{ product.image.url }}" alt="{{ product.name }}"
                         width="200px">
                 </a>
@@ -66,10 +66,10 @@
                     {% if request.user.is_superuser %}
                     <div class="row">
                         <div class="col">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a class="btn" href="{% url 'edit_product' product.id %}">Edit</a>
                         </div>
                         <div class="col">
-                            <a href="{% url 'delete_product' product.id %}">Delete</a>
+                            <a class="btn" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>
                     </div>
                     {% endif %}
