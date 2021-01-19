@@ -12,7 +12,9 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+.h1,
 .jumbotron h1,
+.jumbo-quote,
 .product-card h4,
 .single-card-title,
 .nav-cart-total,
@@ -103,6 +105,13 @@ header {
     margin-bottom: 6px;
 }
 
+/* Jumbotron */
+
+.jumbo-container {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 /* about section */
 
 .about-row {
@@ -152,9 +161,21 @@ header {
 
 .jumbotron {
     color: #ffffff;
-    background-color: #000000;
+    background-image: url("/media/Jeremyfliestext.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 0;
 }
+
+/* .opaque-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+} */
 
 
 

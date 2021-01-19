@@ -3,14 +3,17 @@
 {% block content %}
 <!-- hero image -->
 <div class="jumbotron">
-    <div class="container text-center text-lg-right">
+    <div class="jumbo-container text-center ">
         <div class="row">
             <div class="col-sm-5 align-items-center d-flex">
-                <img src="{{MEDIA_URL}}Rocket_temp.jpg" alt="" class="img-fluid">
+                <!-- <img src="{{MEDIA_URL}}Jeremyfliestext.jpg" alt="" class="img-fluid"> -->
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-7 col-sm-offset-5">
                 <h1 class="display-4">Jeremy Flies</h1>
                 <p class="lead">The new book of illustrations by Jeremy for Nick Drake</p>
+                <p class="text-center jumbo-quote">
+                    "who shared with me the songs of Bob Dylan and the secret delights of Disque Bleu cigarettes in those long-ago schoolboy summers of 1966/1967 and wrote this song about our time together"
+                </p>
                 <span class="text-center d-inline-block">
                     <a class="btn draw-border w-100" href="#" role="button">Read more</a>
                 </span>
@@ -19,11 +22,26 @@
     </div>
 </div>
 
+<section class="home-action">
+    <div class="row">
+        <div class="col-sm-4 left-action text-center">
+            <p>Filler</p>
+        </div>
+        <div class="col-sm-4 center-action text-center">
+            <p>Filler</p>
+        </div>
+        <div class="col-sm-4 right-action text-center">
+            <p>Filler</p>
+        </div>
+    </div>
+
+</section>
+
 <!-- About -->
 <section class="about-section" id="about">
     <div class="row about-row">
         <div class="col-md-6 mx-auto my-auto">
-            <img src="{{MEDIA_URL}}J&Jabout.jpg">
+            <img class="img-fluid" src="{{MEDIA_URL}}J&Jabout.jpg">
             <h1>About Us</h1>
         </div>
         <div class="col-md-6">
