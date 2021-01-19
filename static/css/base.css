@@ -13,6 +13,7 @@ p {
 }
 
 .h1,
+.title,
 .jumbotron h1,
 .jumbo-quote,
 .product-card h4,
@@ -112,6 +113,15 @@ header {
     margin-right: 0px;
 }
 
+.jumbotron {
+    color: #ffffff;
+    background-image: url("/media/Jeremyfliestext.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0;
+}
+
 /* about section */
 
 .about-row {
@@ -121,12 +131,25 @@ header {
     background-size: 50%;
     background-color: #77AB6E; */
     /* background:blue url('../../media/J&Jabout.jpg') repeat-y; */
-    background-size: 60% 40% auto;
+    /* background-size: 60% 40% auto; */
     width: 100%;
-    height:400px;
-    padding: 15px;
+    /* height:400px;
+    padding: 15px; */
     margin-right: 0;
     margin-left: 0;
+}
+
+.about-img {
+    /* position: relative;
+    max-height: 300px; */
+}
+
+/* home page action boxes */
+
+.home-action-box {
+      padding: 70px 0;
+  border: 3px solid green;
+  text-align: center;
 }
 
 /* toasts */
@@ -159,14 +182,7 @@ header {
 }
 
 
-.jumbotron {
-    color: #ffffff;
-    background-image: url("/media/Jeremyfliestext.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 0;
-}
+
 
 /* .opaque-overlay {
     position: absolute;
