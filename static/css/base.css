@@ -247,7 +247,7 @@ header {
 /* blog */
 
 .blog-title-row {
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 }
 
 .blog-title {
@@ -255,23 +255,14 @@ header {
     margin-top: 30px;
 }
 
-.blog-post-row {
-    margin-bottom: 50px;
-    border: 1px solid black;
-    padding-top: 15px;
-    padding-bottom: 15px;
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
 }
 
 .blog-post-img {
-    display: block;
-    max-height: 150px;
-    /* border-radius: 50%; */
-    /* padding: 40px; */
-    /* height: fit-content; */
-}
-
-.blog-post-text {
-    position: relative;
+    max-height: 400px;
+    min-width: 150px;
 }
 
 /* media queries */

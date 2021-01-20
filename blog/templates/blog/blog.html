@@ -17,44 +17,47 @@
         </div>
     </div>
     {% for post in post_list %}
-    <div class="row blog-post-row">
-        <div class="col-md-12">
-            <div class="d-md-flex">
-                {% if post.image %}
-                <a href="{{ post.image.url }}" target="_blank">
-                    <img class="img-fluid blog-post-img" src="{{ post.image.url }}" alt="{{ post.post_title }}"></a>
-                {% else %}
-                <img class="img-fluid blog-post-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
-                {% endif %}
-                <div class="blog-post-text">
-                    <h3 class="title">{{post.post_title}}</h3>
-                    <p>{{ post.post_content }}</p>
-                </div>
-            </div>
-        </div>
-    
-        <!-- <div class="col-md-7">
-            <div class="row">
-                <div class="col text-center">
-                    <h2>{{ post.post_title }}</h2>
-                    <hr>
-                    <p>{{ post.post_content }}</p>
-                </div>
-            </div>
-        </div> -->
-        {% if request.user.is_superuser %}
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6 d-flex justify-content-center">
-                <a class="btn" href="{% url 'edit_post' post.id %}">Edit</a>
-            </div>
-            <div class="col-sm-6 d-flex justify-content-center">
-                <a class="btn" href="{% url 'delete_post' post.id %}">Delete</a>
+            <div class="col-12 mt-3">
+                <div class="blog-card">
+                    <div class="card-horizontal">
+                        <div class="row d-flex flex-wrap align-items-center">
+                            <div class="col-md-5 d-flex justify-content-center">
+                                {% if post.image %}
+                                <a href="{{ post.image.url }}" target="_blank">
+                                    <img class="img-fluid blog-post-img" src="{{ post.image.url }}"
+                                        alt="{{ post.post_title }}"></a>
+                                {% else %}
+                                <img class="img-fluid blog-post-img" src="{{ MEDIA_URL }}noimage.png"
+                                    alt="{{ post.post_title }}">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h4 class="blog-title">{{ post.post_title }}</h4>
+                                    <p>{{ post.post_content }}</p>
+                                    <small>this will be where the post info goes</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if request.user.is_superuser %}
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-6 d-flex justify-content-center">
+                                <a class="btn" href="{% url 'edit_post' post.id %}">Edit</a>
+                            </div>
+                            <div class="col-sm-6 d-flex justify-content-center">
+                                <a class="btn" href="{% url 'delete_post' post.id %}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
-        {% endif %}
     </div>
-
-
     {% endfor %}
 </div>
 
