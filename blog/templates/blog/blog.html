@@ -6,20 +6,34 @@
     <div class="row blog-title-row">
         <div class="col">
             <h2 class="text-center blog-title">I think good</h2>
+            {% if request.user.is_superuser %}
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <a class="btn" href="{% url 'add_post' %}">Add new post</a>
+                </div>
+            </div>
+            {% endif %}
             <hr>
         </div>
     </div>
     {% for post in post_list %}
     <div class="row blog-post-row">
-        <div class="col-md-7 blog-post-img">
-            {% if post.image %}
-            <a href="{{ post.image.url }}" target="_blank">
-            <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.post_title }}" width="500px"></a>
-            {% else %}
-            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}" width="500px">
-            {% endif %}
+        <div class="col-md-12">
+            <div class="d-md-flex">
+                {% if post.image %}
+                <a href="{{ post.image.url }}" target="_blank">
+                    <img class="img-fluid blog-post-img" src="{{ post.image.url }}" alt="{{ post.post_title }}"></a>
+                {% else %}
+                <img class="img-fluid blog-post-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ post.post_title }}">
+                {% endif %}
+                <div class="blog-post-text">
+                    <h3 class="title">{{post.post_title}}</h3>
+                    <p>{{ post.post_content }}</p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-5">
+    
+        <!-- <div class="col-md-7">
             <div class="row">
                 <div class="col text-center">
                     <h2>{{ post.post_title }}</h2>
@@ -27,20 +41,20 @@
                     <p>{{ post.post_content }}</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         {% if request.user.is_superuser %}
-    <div class="row">
-        <div class="col-sm-6 d-flex justify-content-center">
-            <a class="btn" href="{% url 'edit_post' post.id %}">Edit</a>
+        <div class="row">
+            <div class="col-sm-6 d-flex justify-content-center">
+                <a class="btn" href="{% url 'edit_post' post.id %}">Edit</a>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-center">
+                <a class="btn" href="{% url 'delete_post' post.id %}">Delete</a>
+            </div>
         </div>
-        <div class="col-sm-6 d-flex justify-content-center">
-            <a class="btn" href="{% url 'delete_post' post.id %}">Delete</a>
-        </div>
+        {% endif %}
     </div>
-    {% endif %}
-    </div>
-    
-    
+
+
     {% endfor %}
 </div>
 

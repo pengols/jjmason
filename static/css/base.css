@@ -12,13 +12,7 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
-.h1,
 .title,
-.jumbotron h1,
-.jumbo-quote,
-.product-card h4,
-.single-card-title,
-.nav-cart-total,
 .navbar,
 .blog-title {
     font-family: 'IM Fell English', serif;
@@ -38,19 +32,20 @@ p {
     background: none;
     /* margin: 20px; */
     float: left;
-    border:2px solid #8d18a1;
-    color:#8d18a1;
+    border:2px solid #6B64F5;
+    background-color: #000000;
+    color:#6B64F5;
     border-radius: 0px;
     box-shadow: 0 0 1px #ccc;
     -webkit-transition-duration: 0.5s;
     -webkit-transition-timing-function: cubic-bezier(.5,-.75,.7,1);
-    box-shadow:0px 0 0 #8d18a1 inset;
+    box-shadow:0px 0 0 #6B64F5 inset;
     display: inline-flex;
     align-items: center; 
     
 }
 .btn:hover{
-    box-shadow:250px 0 0 #8d18a1 inset;
+    box-shadow:250px 0 0 #6B64F5 inset;
     color: #ffffff;
 }
 
@@ -111,6 +106,7 @@ header {
 .jumbo-container {
     margin-left: 0px;
     margin-right: 0px;
+    min-height: 40vh;
 }
 
 .jumbotron {
@@ -140,16 +136,28 @@ header {
 }
 
 .about-img {
-    /* position: relative;
-    max-height: 300px; */
+    /* position: relative; */
+    max-height: 400px;
 }
 
 /* home page action boxes */
 
-.home-action-box {
+.action-col {
       padding: 70px 0;
-  border: 3px solid green;
+  /* border: 3px solid green; */
   text-align: center;
+}
+
+.action-col-left {
+    background-color: #FF5CD2;
+}
+
+.action-col-center {
+    background-color: #CB6CEC;
+}
+
+.action-col-right {
+    background-color: #A76AFC;
 }
 
 /* toasts */
@@ -255,7 +263,15 @@ header {
 }
 
 .blog-post-img {
+    display: block;
+    max-height: 150px;
+    /* border-radius: 50%; */
     /* padding: 40px; */
+    /* height: fit-content; */
+}
+
+.blog-post-text {
+    position: relative;
 }
 
 /* media queries */
