@@ -32,21 +32,21 @@ p {
     background: none;
     /* margin: 20px; */
     float: left;
-    border:2px solid #6B64F5;
-    background-color: #000000;
-    color:#6B64F5;
+    /* border:1px solid #FFAA54; */
+    background-color: #654321;
+    color:#ffffff;
     border-radius: 0px;
     box-shadow: 0 0 1px #ccc;
     -webkit-transition-duration: 0.5s;
     -webkit-transition-timing-function: cubic-bezier(.5,-.75,.7,1);
-    box-shadow:0px 0 0 #6B64F5 inset;
+    box-shadow:0px 0 0 #FFAA54 inset;
     display: inline-flex;
     align-items: center; 
     
 }
 .btn:hover{
-    box-shadow:250px 0 0 #6B64F5 inset;
-    color: #ffffff;
+    box-shadow:250px 0 0 #FFAA54 inset;
+    color: #000000;
 }
 
 header {
