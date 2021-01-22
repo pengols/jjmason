@@ -6,6 +6,11 @@
 
 html {
     height: 100%;
+    
+}
+
+body {
+    background-image: url("/media/BG-paper.png");
 }
 
 p {
