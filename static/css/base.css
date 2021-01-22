@@ -13,18 +13,9 @@ p {
 }
 
 .title,
-.navbar,
-.blog-title {
+.navbar {
     font-family: 'IM Fell English', serif;
 }
-
-/* .btn {
-    background-color: #8d18a1;
-    border: 0;
-    color: #ffffff;
-    border-radius: 0;
-    
-} */
 
 .btn{
     height: 50px;
@@ -118,6 +109,14 @@ header {
     border-radius: 0;
 }
 
+/* page headers */
+
+.page-header {
+    margin-left: 0px;
+    margin-right: 0px;
+    max-height: 10vh;
+}
+
 /* about section */
 
 .about-row {
@@ -189,20 +188,6 @@ header {
     background-color: rgb(67, 168, 199);
 }
 
-
-
-
-/* .opaque-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-} */
-
-
-
 /* product cards */
 
 .product-card {
@@ -246,15 +231,6 @@ header {
 
 /* blog */
 
-.blog-title-row {
-    margin-bottom: 0px;
-}
-
-.blog-title {
-    font-size: 3.0rem;
-    margin-top: 0px;
-}
-
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
@@ -263,6 +239,10 @@ header {
 .blog-post-img {
     max-height: 400px;
     min-width: 150px;
+}
+
+.blog-title {
+    font-size: 2.7rem;
 }
 
 /* media queries */
