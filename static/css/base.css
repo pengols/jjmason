@@ -205,6 +205,10 @@ header {
 
 /* product cards */
 
+.products-col {
+    margin-bottom: 15px;
+}
+
 .product-card {
     margin-bottom: 10px;
     border-radius: 0px;
