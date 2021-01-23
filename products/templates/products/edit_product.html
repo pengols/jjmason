@@ -3,15 +3,18 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Manage Products</h2>
-            <p>Edit product</p>
-            <hr>
+<div class="jumbotron header-blue">
+    <div class="page-header text-center">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-8">
+                <h1 class="title display-4">Edit product</h1>
+            </div>
         </div>
     </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form" enctype="multipart/form-data">

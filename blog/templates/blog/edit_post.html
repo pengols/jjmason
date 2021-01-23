@@ -2,15 +2,18 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Blog management</h2>
-            <h5>Edit Blog post</h5>
-            <hr>
+<div class="jumbotron header-text">
+    <div class="page-header text-center">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-8 col-sm-offset-5">
+                <h1 class="title display-4">Edit blog post</h1>
+            </div>
         </div>
     </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col">
             <form method="POST" action="{% url 'edit_post' post.id %}" enctype="multipart/form-data" class="form">

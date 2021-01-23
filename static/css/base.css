@@ -5,8 +5,7 @@
 }
 
 html {
-    height: 100%;
-    
+    height: 100%; 
 }
 
 body {
@@ -107,7 +106,6 @@ header {
 
 .jumbotron {
     color: #ffffff;
-    background-image: url("/media/Jeremyfliestext.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -120,6 +118,18 @@ header {
     margin-left: 0px;
     margin-right: 0px;
     max-height: 10vh;
+}
+
+.header-text {
+    background-image: url("/media/Jeremyfliestext.jpg");
+}
+
+.header-blue {
+    background-image: url("/media/headerblue.jpg");
+}
+
+.header-stripes {
+    background-image: url("/media/headerstripes.jpg");
 }
 
 /* about section */
@@ -204,8 +214,30 @@ header {
 .product-card:hover{
     box-shadow: 3px 3px 3px rgb(211, 211, 211);    
     transform: scale(1.01);
-
 }
+
+.single-quantity-row {
+    margin-left: 10px;
+}
+
+.single-product-title {
+    margin-top: 30px;
+}
+
+.single-product-text {
+    padding: 5px;
+}
+
+.printsize-dropdown {
+    width: 70px;
+    display: inline;
+}
+
+.quantity-select {
+    width: 70px;
+    display: inline-block;
+}
+
 
 /* single product */
 
@@ -239,6 +271,12 @@ header {
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
+}
+
+.blog-card {
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    border-radius: 1px;
 }
 
 .blog-post-img {
