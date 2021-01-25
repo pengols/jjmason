@@ -22,7 +22,7 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You need to enter something")
+                messages.error(request, "Please enter a search query")
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(publisher__icontains=query) | Q(illustrator__icontains=query) | Q(isbn__icontains=query) | Q(original_author__icontains=query)

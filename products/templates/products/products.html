@@ -49,6 +49,11 @@
         </div>
     </div>
     <div class="row">
+        {% if not products %}
+                    <div class="col-12 text-center">
+                        <h3 class="title">There are no results for this search. Return to <a href="{% url 'products' %}">products</a> or try another search.</h3>
+                    </div>
+                {% endif %}
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 products-col">
             <div class="card product-card hover-zoom h-100">
