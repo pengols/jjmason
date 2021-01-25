@@ -4,7 +4,7 @@
 
 **A site where users can view, purchase and discuss the inspiration and artistic work of JJ Mason.**
 
-[View the live site](https://#/)
+[View the live site](https://jjmason.herokuapp.com/)
 
 </div>
 

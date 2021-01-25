@@ -96,6 +96,28 @@ header {
     margin-bottom: 6px;
 }
 
+.dropdown-menu {
+    margin: 0;
+}
+
+.search-box {
+    min-width: 300px;
+    padding: 10px;
+}
+
+.search-form {
+    border-radius: 0;  
+}
+
+.search-inline-form {
+    justify-content: center; 
+}
+
+.search-button {
+    height: 38px;
+    width: 40px;
+}
+
 /* Jumbotron */
 
 .jumbo-container {
