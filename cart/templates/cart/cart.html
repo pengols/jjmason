@@ -1,80 +1,96 @@
 {% extends "base.html" %} {% load static %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        {% if cart_items %}
-        
-        <div class="table">
-            {% for item in cart_items %}
-            <div class="row">
-            <div class="col">
-            <tr>
-                <td>
-                    {% if product.image %}
-                    <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}" width="200px">
-                    {% else %}
-                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" width="200px">
-                    {% endif %}
-                </td>
-                <td>
-                    name:{{ item.product.name }}
-                </td>
-                <td>
-                    size:{% if item.product.print_sizes %}{{ item.print_size }}{% else %}N/A{% endif %}
-                </td>
-                <td>
-                    price: £{{ item.product.price }}
-                </td>
-                <td>
-                    qty: {{ item.quantity }}
-                </td>
-                <td>
-                    sub-total: £{{ item.product.price }}
-                </td>
-                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-print_size="{{ item.print_size }}"><small>Remove</small></a>
-            </tr>
-        </div>
+<div class="jumbotron header-text">
+    <div class="page-header text-center">
+        <div class="row">
+            <div class="col-sm-4">
             </div>
-            {% endfor %}
-            <tr>
-                <td colspan="5" class="pt-5 text-right">
-                    <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                    <h4 class="mt-4"><strong>Grand Total: ${{ total|floatformat:2 }}</strong></h4>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                        <span>Keep Shopping</span>
-                    </a>
-                    <a href="{% url 'checkout' %}" class="btn">
-                        <span>Secure Checkout</span>
-                    </a>
-                </td>
-            </tr>
+            <div class="col-sm-8 col-sm-offset-5">
+                <h1 class="title display-4">Cart</h1>
+            </div>
         </div>
-        {% else %}
-        <p>Your bag has nothing</p>
-        <a href="{% url 'products' %}">go back</a>
-        {% endif %}
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            {% if cart_items %}
+
+            <div class="table">
+                {% for item in cart_items %}
+                <div class="row">
+                    <div class="col">
+                        <tr>
+                            <td>
+                                {% if product.image %}
+                                <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}"
+                                    width="200px">
+                                {% else %}
+                                <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"
+                                    width="200px">
+                                {% endif %}
+                            </td>
+                            <td>
+                                name:{{ item.product.name }}
+                            </td>
+                            <td>
+                                size:{% if item.product.print_sizes %}{{ item.print_size }}{% else %}N/A{% endif %}
+                            </td>
+                            <td>
+                                price: £{{ item.product.price }}
+                            </td>
+                            <td>
+                                qty: {{ item.quantity }}
+                            </td>
+                            <td>
+                                sub-total: £{{ item.product.price }}
+                            </td>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
+                                data-print_size="{{ item.print_size }}"><small>Remove</small></a>
+                        </tr>
+                    </div>
+                </div>
+                {% endfor %}
+                <tr>
+                    <td colspan="5" class="pt-5 text-right">
+                        <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                        <h4 class="mt-4"><strong>Grand Total: ${{ total|floatformat:2 }}</strong></h4>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <span>Keep Shopping</span>
+                        </a>
+                        <a href="{% url 'checkout' %}" class="btn">
+                            <span>Secure Checkout</span>
+                        </a>
+                    </td>
+                </tr>
+            </div>
+            {% else %}
+            <p>Your bag has nothing</p>
+            <a href="{% url 'products' %}">go back</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 
 <script type="text/javascript">
     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
+    $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var print_size = $(this).data('print_size');
         var url = `/cart/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'print_size': print_size};
+        var data = { 'csrfmiddlewaretoken': csrfToken, 'print_size': print_size };
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+            .done(function () {
+                location.reload();
+            });
     })
 </script>
 {% endblock %}

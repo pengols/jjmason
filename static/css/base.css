@@ -299,3 +299,9 @@ header {
 }
 
 /* media queries */
+
+@media only screen and (-width: 768px) {
+  .card-horizontal-row {
+    width: 100%;
+    }
+}
