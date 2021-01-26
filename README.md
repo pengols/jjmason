@@ -2,7 +2,7 @@
   <img src="https://github.com/pengols/jjmason/blob/master/documentation/images/screens.png">
 <hr>
 
-**A site where users can view, purchase and discuss the inspiration and artistic work of JJ Mason.**
+**A site where users can view, purchase and follow the inspiration and artistic work of JJ Mason.**
 
 [View the live site](https://jjmason.herokuapp.com/)
 
@@ -49,6 +49,7 @@
 
 ### **<u>Purpose</u>**
 
+Using HTML, CSS, JavaScript, Python & Django, the site is designed to provide a platform to both showcase and make available to purchase, the various types of artwork by Jeremy J Mason. Non-registered users are able to browse products and make purchases using Stripe.  Registered users are able to store delivery information and also browse and make purchases.  Site owners/Administrators are able to manage orders, users, products and blog posts.
 
 ### **<u>Design</u>**
 
@@ -60,35 +61,34 @@
 
 **Typography**
 
+The site uses two fonts, both available from [Google Fonts](https://fonts.google.com/).  Headings and titles use IM Fell English.  Much of Jeremy's art is inspired by the work of Oscar Wilde and this font evokes the feeling of printed works from the 19th Century.  For larger pieces of text such as product descriptions Opens Sans is used for it's legibility.  Sans Serif is used as a fallback font, in case for any reason the fonts aren't being imported into the site correctly.
 
 ### **<u>User Stories</u>**
 
 Non-registered and registered users:
-- view products so i can select items to purchase, sort by best, worst, most purchased
+- view products so i can select items to purchase
+- sort products by category, price (ascending and descending) and sort products alphabetically (ascending and descending)
 - search for specific product using keywords
 - view individual product details to easily see price, description and image, product rating, and availability
-- view current total price of basket
-- view blog/comments forum 
+- view site owners blog
 - register for an account or login 
+- view current items in my shopping cart
+- complete a purchase and recieve a confirmation email
 
 
 Registered users 
-- recieve email to confirm registration
-- easily login/logout
+- ability to login/logout
+- ability to reset a forgotten password
 - view previous purchase history
-- comment on previous purchases and give ratings / blog
 - recover account
+- reset password
 - personalised user profile
 
-
-<u>**User profiles**</u>
-
-**User profile: Site member**
-
-**User profile: Site owner**
-
-<u>**User stories**</u>
-
+Site owner/Administrator
+- login to administration panel
+- within the administration panel be able to manage site users, products orders and blog posts
+- add, edit and remove existing products for sale
+- add, edit and remove blog posts
 
 
 ### **<u>Wireframes</u>**
@@ -97,8 +97,14 @@ Registered users
 
 ### **Current Features**
 
+- Developed with a 'mobile-first' ethos, the site is responsive on all device sizes.  Visitors to the site should experience no difference in functionality of the site regardless of screen viewing size. 
+- Using the 3rd party package [Allauth](https://django-allauth.readthedocs.io/en/latest/) users are able to securely register, verify their account with a link provided by email and subsequently login to the site to be able to record their purchase history and peronalise their delivery details for future purchases.  Registered users are also able to perform a forgotton password request form the sign in page.
+
 ### **Future Features**
 
+- Forum
+- product rating
+- personalised message
 
 ## **Technologies Used**
 
