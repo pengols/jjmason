@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="#">
+  <img src="https://github.com/pengols/jjmason/blob/master/documentation/images/screens.png">
 <hr>
 
 **A site where users can view, purchase and discuss the inspiration and artistic work of JJ Mason.**
