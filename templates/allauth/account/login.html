@@ -7,7 +7,19 @@
 
 {% block inner_content %}
 
-<h1 class="allauth-h1">{% trans "Sign In" %}</h1>
+<div class="jumbotron header-blue">
+    <div class="page-header text-center">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-8">
+                <h1 class="title display-4">{% trans "Login" %}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row align-items-center justify-content-center">
+    <div class="col-8 ">
 
 {% get_providers as socialaccount_providers %}
 
@@ -42,5 +54,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
+    </div>
+</div>
 
 {% endblock %}
