@@ -1,6 +1,6 @@
 <div class="toast custom-toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
     <div class="toast-header toast-success">
-        <strong class="mr-auto">Success</strong>
+        <strong class="mr-auto title">Success</strong>
         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -8,17 +8,17 @@
     <div class="toast-body">
         <div class="row">
             <div class="col text-center">
-                {{ message }}
+                <p>{{ message }}</p>
                 <hr class="mt-1 mb-3">
             </div>
         </div>
         {% if total > 0 %}
-        <div class="text-center">Your Bag has <strong>{{ product_count }}</strong> item(s)</div>
+        <div class="text-center">Your Cart currently has <strong>{{ product_count }}</strong> item(s)</div>
         <div class="text-center">Subtotal: <strong>£{{ total|floatformat:2 }}</strong></div>
         <hr>
         <div class="row">
             <div class="col text-center">
-                <a href="{% url 'view_cart' %}" class="btn">
+                <a href="{% url 'view_cart' %}" class="btn secure-checkout-btn">
                     <span class="text-uppercase">Go To Secure Checkout</span>
                     <span class="icon">
                         <i class="fas fa-lock"></i>
