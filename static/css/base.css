@@ -194,14 +194,18 @@ header {
     position: fixed;
     top: 155px;
     right: 30px;
+    border-radius: 0px;
+    border: 1px solid #000000;
 }
 
 .custom-toast {
     overflow: visible;
+    border-radius: 0px;
 }
 
 .toast-success{
     background-color: rgb(126, 236, 126);
+    border-radius: 0px;
 }
 
 .toast-warning{
