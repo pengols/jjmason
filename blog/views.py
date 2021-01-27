@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from profiles.models import UserProfile
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import BlogPost
 from .forms import BlogForm
@@ -19,6 +20,7 @@ def post_list(request):
     return render(request, 'blog/blog.html', context)
 
 
+@login_required
 def add_post(request):
     """adds new blog post"""
     if request.method == 'POST':
@@ -41,6 +43,7 @@ def add_post(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_post(request, post_id):
     """edit blog post"""
     post = get_object_or_404(BlogPost, pk=post_id)
@@ -65,6 +68,7 @@ def edit_post(request, post_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_post(request, post_id):
     """deletes blog post"""
     post = get_object_or_404(BlogPost, pk=post_id)
