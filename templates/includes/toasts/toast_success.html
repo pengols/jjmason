@@ -12,7 +12,10 @@
                 <hr class="mt-1 mb-3">
             </div>
         </div>
-        <p class="text-center">Your Bag has <strong>{{ product_count }}</strong> item(s)</p>
+        {% if total > 0 %}
+        <div class="text-center">Your Bag has <strong>{{ product_count }}</strong> item(s)</div>
+        <div class="text-center">Subtotal: <strong>£{{ total|floatformat:2 }}</strong></div>
+        <hr>
         <div class="row">
             <div class="col text-center">
                 <a href="{% url 'view_cart' %}" class="btn">
@@ -21,8 +24,9 @@
                         <i class="fas fa-lock"></i>
                     </span>
                 </a>
+                <div class="continue-shopping mt-2" data-dismiss="toast" aria-label="Close">Continue Shopping</div>
             </div>
         </div>
-
+        {% endif %}
     </div>
 </div>
