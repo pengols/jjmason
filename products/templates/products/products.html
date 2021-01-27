@@ -50,10 +50,11 @@
     </div>
     <div class="row">
         {% if not products %}
-                    <div class="col-12 text-center">
-                        <h3 class="title">There are no results for this search. Return to <a href="{% url 'products' %}">products</a> or try another search.</h3>
-                    </div>
-                {% endif %}
+        <div class="col-12 text-center">
+            <h3 class="title">There are no results for this search. Return to <a
+                    href="{% url 'products' %}">products</a> or try another search.</h3>
+        </div>
+        {% endif %}
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-6 col-xl-4 products-col">
             <div class="card product-card hover-zoom h-100">
@@ -78,40 +79,35 @@
                     <a
                         href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                     {% endif %}
+
+                    {% if product.category|stringformat:"s" == 'paintings' %}
+                    <div class="row">
+                        <div class="col-12 ">
+                            <a class="btn" href="{% url 'single_product' product.id %}">View details</a>
+                        </div>
+                    </div>
+                    {% else %}
                     <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="form-row">
-                                    {% with product.print_sizes as p %}
-                                    {% if p %}
-                                    <div class="col-12">
-                                        <p><strong>Sizes available:</strong>
-                                        <select class="form-control printsize-dropdown" name="print_size" id="id_print_size">
-                                            <option value="A5">A5</option>
-                                            <option value="A4">A4</option>
-                                            <option value="A3" selected>A3</option>
-                                            <option value="A2">A2</option>
-                                            <option value="A1">A1</option>
-                                        </select></p>
-                                    </div>
-                                    {% endif %}
-                                    <div hidden class="col-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input class="form-control qty_input" type="number" name="quantity"
-                                                    value="1" min="1" max="1" data-item_id="{{ product.id }}"
-                                                    id="id_qty_{{ product.id }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-12 ">
-                                        <input type="submit" class="btn" value="Add to cart">
-                                    </div>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    {% endwith %}
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div hidden class="col-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                            min="1" max="1" data-item_id="{{ product.id }}"
+                                            id="id_qty_{{ product.id }}">
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 ">
+                                    <input type="submit" class="btn" value="Add to cart">
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </div>
+                        </div>
+                    </form>
+                    {% endif %}
                     {% if request.user.is_superuser %}
                     <div class="row">
                         <div class="col">
