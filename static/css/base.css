@@ -349,6 +349,15 @@ header {
     font-size: 2.7rem;
 }
 
+/* order confirmation */
+
+.order-container {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #ffffff;
+}
+
 /* media queries */
 
 @media only screen and (-width: 768px) {
