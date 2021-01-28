@@ -54,13 +54,13 @@ a:hover {
 
 .btn-solid:hover {
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
     border: 1px solid #A76AFC;
 }
 
 .btn-transparent {
     background-color: transparent;
-    color: #ffffff;
+    color: #000000;
     border: 1px solid #A76AFC;
 }
 
@@ -68,6 +68,18 @@ a:hover {
         background-color: #A76AFC;
     color:#ffffff;
     border: 1px solid #A76AFC;
+}
+
+.btn-delete {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid red;
+}
+
+.btn-delete:hover {
+        background-color: red;
+    color:#ffffff;
+    border: 1px solid red;
 }
 
 header {

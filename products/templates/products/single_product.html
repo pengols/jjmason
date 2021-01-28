@@ -19,12 +19,17 @@
                             {% endif %}
                         </div>
                         <div class="col-lg-6">
-                            <h2 class="title text-center single-product-title">{{product.name}}</h2>
+                            <h2 class="title single-product-title">{{product.name}}</h2>
                             <p class="single-product-text">{{product.description}}</p>
                             {% if product.category %}
                             <a
                                 href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                             {% endif %}
+                            <p>{{product.price}}</p>
+                            <p>{{product.original_author}}</p>
+                            <p>{{product.illustrator}}</p>
+                            <p>{{product.publisher}}</p>
+                            <p>{{product.publication_year}}</p>
                             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-row single-quantity-row">
@@ -52,14 +57,14 @@
                                         </div></span>
                                     </div>
                                     <div class="col-12">
-                                        <a href="{% url 'products' %}" class="btn">
-                                            <span class="text-uppercase">Keep Shopping</span>
+                                        <a href="{% url 'products' %}" class="btn btn-transparent">
+                                            <span>Keep Shopping</span>
                                         </a>
-                                        <input type="submit" class="btn" value="Add to cart">
+                                        <input type="submit" class="btn btn-solid" value="Add to cart">
                                     </div>
                                     {% if request.user.is_superuser %}
-                                    <a href="{% url 'edit_product' product.id %}">Edit</a>
-                                    <a href="{% url 'delete_product' product.id %}">Delete</a>
+                                    <a class="btn btn-solid" href="{% url 'edit_product' product.id %}">Edit</a>
+                                    <a class="btn btn-transparent" href="{% url 'delete_product' product.id %}">Delete</a>
                                     {% endif %}
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     {% endwith %}
