@@ -10,7 +10,7 @@
                 <h1 class="title display-4">My thoughts</h1>
                 {% if request.user.is_superuser %}
             <span class="text-center d-inline-block">
-                    <a class="btn" href="{% url 'add_post' %}">Add new post</a>
+                    <a class="btn btn-solid" href="{% url 'add_post' %}">Add new post</a>
                 </span>
             {% endif %}
             </div>
@@ -48,10 +48,10 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-sm-6 d-flex justify-content-center">
-                                <a class="btn" href="{% url 'edit_post' post.id %}">Edit</a>
+                                <a class="btn btn-solid" href="{% url 'edit_post' post.id %}">Edit</a>
                             </div>
                             <div class="col-sm-6 d-flex justify-content-center">
-                                <a class="btn" href="{% url 'delete_post' post.id %}">Delete</a>
+                                <a class="btn btn-delete" href="{% url 'delete_post' post.id %}">Delete</a>
                             </div>
                         </div>
                     </div>

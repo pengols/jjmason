@@ -25,26 +25,18 @@ a:hover {
     text-decoration: none;
 }
 
-
 .btn{
-    /* height: 50px; */
     background: none;
     float: left;
-    
-    
     border-radius: 1px;
-    /* box-shadow: 0 0 1px #ccc;
-    -webkit-transition-duration: 0.5s;
-    -webkit-transition-timing-function: cubic-bezier(.5,-.75,.7,1);
-    box-shadow:0px 0 0 #FFAA54 inset; */
     display: inline-flex;
     align-items: center; 
-    
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out; 
 }
-/* .btn:hover{
-    box-shadow:250px 0 0 #FFAA54 inset;
-    color: #000000;
-} */
+
 
 .btn-solid {
     background-color: #A76AFC;
@@ -71,15 +63,19 @@ a:hover {
 }
 
 .btn-delete {
-    background-color: transparent;
+    background-color: red;
     color: #ffffff;
     border: 1px solid red;
 }
 
 .btn-delete:hover {
-        background-color: red;
-    color:#ffffff;
+        background-color: transparent;
+    color:red;
     border: 1px solid red;
+}
+
+.btn-spacer {
+    margin-right: 15px;
 }
 
 header {
