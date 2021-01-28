@@ -6,76 +6,104 @@
 
 <div class="container">
     <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <div class="blog-card">
-                <div class="card-horizontal">
-                    <div class="row d-flex flex-wrap align-items-center">
-                        <div class="col-lg-6 d-flex justify-content-center">
-                            {% if product.image %}
-                            <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                            {% else %}
-                            <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                            {% endif %}
-                        </div>
-                        <div class="col-lg-6">
-                            <h2 class="title single-product-title">{{product.name}}</h2>
-                            <p class="single-product-text">{{product.description}}</p>
-                            {% if product.category %}
-                            <a
-                                href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
-                            {% endif %}
-                            <p>{{product.price}}</p>
-                            <p>{{product.original_author}}</p>
-                            <p>{{product.illustrator}}</p>
-                            <p>{{product.publisher}}</p>
-                            <p>{{product.publication_year}}</p>
-                            <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="form-row single-quantity-row">
-                                    {% with product.print_sizes as p %}
-                                    {% if p %}
-                                    <div class="col-xs-6">
-                                        <span><strong>Size:</strong>
-                                        <select class="form-control printsize-dropdown" name="print_size" id="id_print_size">
-                                            <option value="A5">A5</option>
-                                            <option value="A4">A4</option>
-                                            <option value="A3" selected>A3</option>
-                                            <option value="A2">A2</option>
-                                            <option value="A1">A1</option>
-                                        </select></span>
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="blog-card">
+                    <div class="card-horizontal">
+                        <div class="row d-flex flex-wrap align-items-center">
+                            <div class="col-lg-6 d-flex justify-content-center">
+                                {% if product.image %}
+                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                {% else %}
+                                <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6 single-product-info">
+                                <h2 class="title single-product-title">{{product.name}}</h2>
+                                <hr class="mt-2 mb-2">
+                                <h4 class="single-product-price">£{{product.price}}</h4>
+                                <hr class="mt-2 mb-2">
+                                <p class="single-product-text">{{product.description}}</p>
+                                <hr class="mt-2">
+                                {% if product.category %}
+                                <p class="mb-1"><span class="font-weight-bold">Category: </span><a
+                                        href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
+                                </p>
+                                {% endif %}
+
+                                <p class="mb-1"><span class="font-weight-bold">Original Author:
+                                    </span>{{product.original_author}}</p>
+                                <p class="mb-1"><span class="font-weight-bold">Illustrator:
+                                    </span>{{product.illustrator}}</p>
+                                {% if product.publisher %}
+                                <p class="mb-1"><span class="font-weight-bold">Publisher: </span>{{product.publisher}}
+                                </p>
+                                {% endif %}
+                                {% if product.publication_year %}
+                                <p class="mb-1"><span class="font-weight-bold">Published:
+                                    </span>{{product.publication_year}}</p>
+                                {% endif %}
+                                <hr class="mb-1"
+                                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row single-quantity-row">
+                                        {% with product.print_sizes as p %}
+                                        {% if p %}
+                                        <div class="col-xs-6">
+                                            <span><strong>Size:</strong>
+                                                <select class="form-control printsize-dropdown" name="print_size"
+                                                    id="id_print_size">
+                                                    <option value="A5">A5</option>
+                                                    <option value="A4">A4</option>
+                                                    <option value="A3" selected>A3</option>
+                                                    <option value="A2">A2</option>
+                                                    <option value="A1">A1</option>
+                                                </select></span>
+                                        </div>
+                                        {% endif %}
+                                        <div class="col-xs-6">
+                                            <span><strong>Quantity:</strong>
+                                                <div class="form-group quantity-select">
+                                                    <div class="input-group">
+                                                        <input class="form-control qty_input" type="number"
+                                                            name="quantity" value="1" min="1" max="10"
+                                                            data-item_id="{{ product.id }}"
+                                                            id="id_qty_{{ product.id }}">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <div class="col-12">
+                                            <a href="{% url 'products' %}" class="btn btn-transparent btn-spacer">
+                                                <span>Keep Shopping</span>
+                                            </a>
+                                            <input type="submit" class="btn btn-solid" value="Add to cart">
+                                        </div>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        {% endwith %}
                                     </div>
-                                    {% endif %}
-                                    <div class="col-xs-6">
-                                        <span><strong>Quantity:</strong>
-                                        <div class="form-group quantity-select">
-                                            <div class="input-group">
-                                                <input class="form-control qty_input" type="number" name="quantity"
-                                                    value="1" min="1" max="10" data-item_id="{{ product.id }}"
-                                                    id="id_qty_{{ product.id }}">
-                                            </div>
-                                        </div></span>
-                                    </div>
-                                    <div class="col-12">
-                                        <a href="{% url 'products' %}" class="btn btn-transparent">
-                                            <span>Keep Shopping</span>
-                                        </a>
-                                        <input type="submit" class="btn btn-solid" value="Add to cart">
-                                    </div>
-                                    {% if request.user.is_superuser %}
-                                    <a class="btn btn-solid" href="{% url 'edit_product' product.id %}">Edit</a>
-                                    <a class="btn btn-transparent" href="{% url 'delete_product' product.id %}">Delete</a>
-                                    {% endif %}
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    {% endwith %}
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                    {% if request.user.is_superuser %}
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-6 d-flex justify-content-center">
+                                <a class="btn btn-solid btn-spacer"
+                                                href="{% url 'edit_product' product.id %}">Edit item</a>
+                            </div>
+                            <div class="col-sm-6 d-flex justify-content-center">
+                                <a class="btn btn-delete"
+                                                href="{% url 'delete_product' product.id %}">Delete item</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
+                
             </div>
         </div>
-    </div>
     </div>
 
     {% endblock %}
