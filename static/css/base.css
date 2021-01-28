@@ -362,6 +362,13 @@ header {
     background-color: #ffffff;
 }
 
+/* user profile */
+
+.table-responsive {
+    background-color: #ffffff;
+    border: 1px solid rgb(207, 207, 207);
+}
+
 /* media queries */
 
 /* @media only screen and (-width: 768px) {
