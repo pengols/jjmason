@@ -375,6 +375,10 @@ header {
     border: 1px solid rgb(207, 207, 207);
 }
 
+.history-table {
+    margin-bottom: 0px;
+}
+
 /* footer */
 
 
