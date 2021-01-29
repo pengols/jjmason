@@ -12,12 +12,12 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col">
             {% if cart_items %}
 
-            <div class="table">
+            <div>
                 {% for item in cart_items %}
                 <div class="row">
                     <div class="col">
@@ -46,7 +46,7 @@
                             <td>
                                 sub-total: £{{ item.product.price }}
                             </td>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"
+                            <a class="remove-item btn-delete btn float-right" id="remove_{{ item.item_id }}"
                                 data-print_size="{{ item.print_size }}"><small>Remove</small></a>
                         </tr>
                     </div>
@@ -61,12 +61,15 @@
 
                 <tr>
                     <td>
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                        <a href="{% url 'products' %}" class="btn btn-transparent">
                             <span>Keep Shopping</span>
                         </a>
-                        <a href="{% url 'checkout' %}" class="btn">
-                            <span>Secure Checkout</span>
-                        </a>
+                        <a href="{% url 'view_cart' %}" class="btn btn-solid">
+                    <span class="text-uppercase">Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
                     </td>
                 </tr>
             </div>
