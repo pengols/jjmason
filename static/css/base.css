@@ -9,7 +9,8 @@ html {
 }
 
 body {
-    background-image: url("/media/BG-paper.png");
+    height: 100vh;
+    background-image: url("/media/canvas.jpg");
 }
 
 p {
