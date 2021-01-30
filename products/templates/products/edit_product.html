@@ -19,13 +19,7 @@
         <div class="col-12 mb-3">
             <form method="POST" action="{% url 'edit_product' product.id %}" class="form bespoke-form" enctype="multipart/form-data">
                 {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-                    {% endfor %}
+                    {{ form | crispy}}
                 <a class="btn btn-transparent btn-spacer" href="{% url 'products' %}">Cancel</a>
                 <button class="btn btn-solid" type="submit">Update product</button>
             </form>
