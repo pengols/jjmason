@@ -19,7 +19,7 @@
 
 <div class="row form-row align-items-center justify-content-center">
     <div class="col-8 ">
-<p class="title">{% trans 'Are you sure you want to sign out?' %}</p>
+<h3 class="title">{% trans 'Are you sure you want to sign out?' %}</h3>
 
 <form class="bespoke-form" method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}

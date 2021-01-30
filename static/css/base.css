@@ -30,6 +30,10 @@ p {
     font-family: 'IM Fell English', serif;
 }
 
+a {
+  color: #731ced;  
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -477,7 +481,7 @@ header {
     }
 } */
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 392px) {
   .btn-spacer {
     margin-top: 15px;
     margin-bottom: 15px;
