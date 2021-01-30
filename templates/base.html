@@ -83,7 +83,7 @@
                         <a class="nav-link" href="{% url 'home' %}#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                        <a class="nav-link" href="{% url 'blog' %}">Thoughts</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
@@ -187,31 +187,43 @@
 				<p class="inline-block">
 					A site for visitors to view, purchase and follow the inspiration of the artistic work of Jeremy J Mason.</p>
 			</div>
-			<div class="col-sm-4">
-				<h5 class="title">Quick Links</h5>
-                <p> 020 8773 8111</p>
-                <p> 020 8773 8111</p>
+			<div class="col-sm-4 text-center mb-1">
+                <h5 class="title">Site Links</h5>
+                <a href="{% url 'home' %}#about">About</a>
+                <br>
+                <a href="{% url 'blog' %}">Thoughts</a>
+                <br>
+                <a href="{% url 'products' %}">Products</a>
+                <br>
+                <a href="{% url 'account_login' %}">Login</a>
 			</div>
 			<div class="col-sm-4 text-center">
 				<h5 class="title">Social links</h5>
 				<ul class="list-inline social-links">
-					<li class="list-inline-item">
-						<a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook social-logo-row"></i>
-                    </a>
-					</li>
-					<li class="list-inline-item">
+                    <li class="list-inline-item">
 						<a href="https://www.instagram.com/jeremyjmason48/?hl=en-gb" target="_blank"
                         rel="noopener noreferrer">
-                        <i class="fab fa-instagram social-logo-row"></i>
+                        <i class="fab fa-instagram social-logo-row footer-i"></i>
                     </a>
-					</li>				
+					</li>	
+					<li class="list-inline-item">
+						<a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook social-logo-row footer-i"></i>
+                    </a>
+					</li>	
 				</ul>
 			</div>
 		</div>
 		<div class="row copywrite-row">
-			<div class="col text-center">
-				<p class="copywrite-p">© pengols 2020</p>
+			<div class="col text-center mt-1">
+                <p class="copywrite-p">© pengols 2020</p>
+                <a href="https://github.com/pengols" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-github social-logo-row ml-2"></i></a>
+                        <a href="https://www.linkedin.com/in/alex-pengelly-236048175" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-linkedin social-logo-row"></i></a>
+				
 			</div>
 		</div>
 	</footer>

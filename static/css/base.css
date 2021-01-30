@@ -9,7 +9,7 @@ html, body {
 
 .wrapper {
     min-height: 100%;
-    margin-bottom: -50px;
+    margin-bottom: -190px;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 
 .footer,
 .push {
-    height: 50px;
+    height: 190px;
 }
 
 p {
@@ -116,6 +116,10 @@ header {
   background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+.fa-facebook {
+    color: #3b5998;
 }
 
 .navbar {
@@ -393,37 +397,61 @@ header {
 
 /* footer */
 
+.footer {
+    margin-top: 15px;
+}
+
 #footer-details {
     background-color: #000000;
     padding-top: 15px;
+    margin-right: 0px;
 }
 
 #footer-details h5 {
     color: #ffffff;
     text-align: center;
     text-transform: uppercase;
-
 }
 
-#footer-details p {
+#footer-details p{
     text-align: center;
     color: #ffffff;
+        font-size: 0.9rem;
+            
+}
+
+#footer-details a{
+    text-align: center;
+    color: #ffffff;
+        font-size: 0.9rem;
+}
+
+.footer-i {
+    margin: 0;
 }
 
 .list-inline-item {
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
 }
 
 .copywrite-row {
-    background-color: #000000;
+    background-color: #3f3f3f;
     padding-left: 0;
+    margin-right: 0;
+}
+
+.copywrite-row a{
+    color: #ffffff;
 }
 
 .copywrite-p {
     margin: 0;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
+    color: #ffffff;
 }
+
+
 
 /* media queries */
 
