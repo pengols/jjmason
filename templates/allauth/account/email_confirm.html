@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<div class="row align-items-center justify-content-center">
+<div class="row form-row align-items-center justify-content-center">
     <div class="col-8 ">
 
 {% if confirmation %}
@@ -29,16 +29,16 @@
 
 <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
 
-<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+<form class="bespoke-form" method="post" action="{% url 'account_confirm_email' confirmation.key %}">
 {% csrf_token %}
-    <button type="submit">{% trans 'Confirm' %}</button>
+    <button type="submit btn btn-solid">{% trans 'Confirm' %}</button>
 </form>
 
 {% else %}
 
 {% url 'account_email' as email_url %}
 
-<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+<p class="title">{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
 
 {% endif %}
 

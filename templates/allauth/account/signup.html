@@ -18,13 +18,13 @@
     </div>
 </div>
 
-<div class="row align-items-center justify-content-center">
+<div class="row form-row align-items-center justify-content-center">
     <div class="col-8 ">
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p class="title">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form class="signup bespoke-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
