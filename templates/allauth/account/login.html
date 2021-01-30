@@ -18,7 +18,7 @@
         </div>
     </div>
 </div>
-<div class="row align-items-center justify-content-center">
+<div class="row form-row align-items-center justify-content-center">
     <div class="col-8 ">
 
 {% get_providers as socialaccount_providers %}
@@ -41,18 +41,18 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
+<p class="title">{% blocktrans %}If you have not created an account yet, then please
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<form class="login" method="POST" action="{% url 'account_login' %}">
+<form class="login bespoke-form" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <div class="div">
-  <a class="btn btn-transparent" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <a class="btn btn-transparent btn-spacer" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   </div>
   <div>
   <button class="btn btn-solid" type="submit">{% trans "Sign In" %}</button>
