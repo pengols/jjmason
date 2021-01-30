@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Open+Sans:wght@400;700;800&display=swap');
 
 
-
 html, body {
     height: 100vh; 
     margin: 0;
@@ -263,7 +262,7 @@ select:invalid {
     border: 1px solid #a1a1a1;
     background-color: #ffffff;
     box-shadow: #a1a1a1 1px 1px;
-    max-width: 260px;
+    max-width: 290px;
 }
 
 .custom-toast {
@@ -290,6 +289,11 @@ select:invalid {
 
 .toast-info{
     background-color: rgb(135, 196, 214);
+}
+
+.checkout-col {
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .secure-checkout-btn {
