@@ -47,10 +47,15 @@
                     {% if request.user.is_superuser %}
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-sm-6 d-flex justify-content-center">
+                            <div class="col-sm-4 d-flex justify-content-center">
                                 <a class="btn btn-solid" href="{% url 'edit_post' post.id %}">Edit</a>
                             </div>
-                            <div class="col-sm-6 d-flex justify-content-center">
+                            {% if post.status == 0 %}
+                            <div class="col-sm-4 d-flex justify-content-center"><p><strong>Draft post</strong></p></div>
+                            {% else %}
+                            <div class="col-sm-4 d-flex justify-content-center"><p><strong>Published post</strong></p></div>
+                            {% endif %}
+                            <div class="col-sm-4 d-flex justify-content-center">
                                 <a class="btn btn-delete" href="{% url 'delete_post' post.id %}">Delete</a>
                             </div>
                         </div>
