@@ -29,7 +29,6 @@ a:hover {
 .btn{
     background: none;
     float: left;
-    border-radius: 1px;
     display: inline-flex;
     align-items: center; 
     border-radius: 90px;
@@ -232,6 +231,7 @@ header {
     border: 1px solid #a1a1a1;
     background-color: #ffffff;
     box-shadow: #a1a1a1 1px 1px;
+    max-width: 260px;
 }
 
 .custom-toast {
@@ -262,6 +262,10 @@ header {
 
 .secure-checkout-btn {
     margin-bottom: 10px;
+}
+
+.continue-shopping {
+    border-radius: 90px;
 }
 
 /* product cards */
