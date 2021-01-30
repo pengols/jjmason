@@ -152,6 +152,21 @@ header {
     padding: 10px;
 }
 
+/* forms */
+
+.form-row {
+    margin: 0;
+}
+
+.bespoke-form input,
+.bespoke-form textarea,
+.bespoke-form input,
+.bespoke-form textarea {
+    border: 1px solid #7c7c7c;
+    border-radius: 0;
+    padding: 6px 12px;
+}
+
 .search-form {
     border-radius: 0;  
 }
@@ -405,6 +420,7 @@ header {
     background-color: #000000;
     padding-top: 15px;
     margin-right: 0px;
+    margin-left: 0px;
 }
 
 #footer-details h5 {
@@ -460,6 +476,13 @@ header {
     width: 100%;
     }
 } */
+
+@media only screen and (max-width: 375px) {
+  .btn-spacer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+}
 
 @media only screen and (max-width: 991px) {
   .single-product-info {
