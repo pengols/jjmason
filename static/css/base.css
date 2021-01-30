@@ -475,11 +475,11 @@ header {
 
 /* media queries */
 
-/* @media only screen and (-width: 768px) {
+@media only screen and (min-width: 768px) {
   .card-horizontal-row {
     width: 100%;
     }
-} */
+}
 
 @media only screen and (max-width: 392px) {
   .btn-spacer {
