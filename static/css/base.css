@@ -76,15 +76,15 @@ a:hover {
 }
 
 .btn-delete {
-    background-color: red;
+    background-color: #fa3b3b;
     color: #ffffff;
-    border: 1px solid red;
+    border: 1px solid #fa3b3b;
 }
 
 .btn-delete:hover {
         background-color: transparent;
-    color:red;
-    border: 1px solid red;
+    color:#fa3b3b;
+    border: 1px solid #fa3b3b;
 }
 
 .btn-spacer {
@@ -95,7 +95,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 2000;
-    background-color: white;
+    background-color: #ffffff;
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
@@ -165,7 +165,8 @@ header {
 .bespoke-form input,
 .bespoke-form textarea,
 .bespoke-form input,
-.bespoke-form textarea {
+.bespoke-form textarea,
+select:invalid {
     border: 1px solid #7c7c7c;
     border-radius: 0;
     padding: 6px 12px;
