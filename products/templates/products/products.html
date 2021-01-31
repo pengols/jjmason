@@ -72,8 +72,6 @@
                 {% endif %}
 
                 <div class="card-body">
-                    <p class="card-text">{{product.description|safe|truncatewords:"20"}}<a
-                            href="{% url 'single_product' product.id %}">read more</a></p>
                     <hr class="mt-1 mb-1">
                     <p class="mb-1"><strong>Price:</strong> £{{product.price}}</p>
                     {% if product.category %}

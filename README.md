@@ -102,6 +102,7 @@ Site owner/Administrator
 
 - Developed with a 'mobile-first' ethos, the site is responsive on all device sizes.  Visitors to the site should experience no difference in functionality of the site regardless of screen viewing size. 
 - Using the 3rd party package [Allauth](https://django-allauth.readthedocs.io/en/latest/) users are able to securely register, verify their account with a link provided by email and subsequently login to the site to be able to record their purchase history and peronalise their delivery details for future purchases.  Registered users are also able to perform a forgotton password request form the sign in page.
+- blog
 
 ### **Future Features**
 
