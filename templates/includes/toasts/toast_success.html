@@ -17,16 +17,19 @@
         <div class="text-center">Subtotal: <strong>£{{ total|floatformat:2 }}</strong></div>
         <hr>
         <div class="row">
-            <div class="col text-center checkout-col">
-                <a href="{% url 'view_cart' %}" class="btn btn-solid mb-2">
-                    <span class="text-uppercase">Go To Secure Checkout</span>
+            <div class="col-12 text-center checkout-col">
+                <a href="{% url 'view_cart' %}" class="btn btn-solid w-100 justify-content-center mb-2">
+                    <span class="text-uppercase">Go To Secure Checkout&nbsp;</span>
                     <span class="icon">
                         <i class="fas fa-lock"></i>
                     </span>
                 </a>
-                <div class="continue-shopping mt-5 btn-transparent" data-dismiss="toast" aria-label="Close">Continue Shopping</div>
+            </div>
+            <div class="col-12 text-center">
+                <div class="continue-shopping btn-transparent" data-dismiss="toast" aria-label="Close">Continue
+                    Shopping</div>
             </div>
         </div>
-        {% endif %}
     </div>
+    {% endif %}
 </div>

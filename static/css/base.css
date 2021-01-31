@@ -292,8 +292,8 @@ select:invalid {
 }
 
 .checkout-col {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .secure-checkout-btn {
@@ -478,6 +478,10 @@ select:invalid {
     }
     .print-size-selector {
         margin-bottom: 10px;
+    }
+    .checkout-col {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
