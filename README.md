@@ -34,7 +34,10 @@
 </details>
 
 **<details><summary> Testing</summary>**
-  - [Testing Documentation](https://#)
+  - [Tools](#tools)
+  - [Testing User Stories](#testing-user-stories)
+  - [Further Testing](#further-testing)
+  - [Known Bugs and Resolutions if Applicable](#known-bugs-and-resolutions-if-applicable)
 </details>
 
 **<details><summary> Credits</summary>**
@@ -50,6 +53,8 @@
 ### **<u>Purpose</u>**
 
 Using HTML, CSS, JavaScript, Python & Django, the site is designed to provide a platform to both showcase and make available to purchase, the various types of artwork by Jeremy J Mason. Non-registered users are able to browse products and make purchases using Stripe.  Registered users are able to store delivery information and also browse and make purchases.  Site owners/Administrators are able to manage orders, users, products and blog posts.
+
+To make a test purchase, please use credit card number 4242 4242 4242 4242.
 
 ### **<u>Design</u>**
 
@@ -85,9 +90,6 @@ Registered users
 - ability to login/logout
 - ability to reset a forgotten password
 - view previous purchase history
-- recover account
-- reset password
-- personalised user profile
 
 Site owner/Administrator
 - login to administration panel
@@ -107,17 +109,15 @@ Site owner/Administrator
 
 - Developed with a 'mobile-first' ethos, the site is responsive on all device sizes.  Visitors to the site should experience no difference in functionality of the site regardless of screen viewing size. 
 - Using the 3rd party package [Allauth](https://django-allauth.readthedocs.io/en/latest/) users are able to securely register, verify their account with a link provided by email and subsequently login to the site to be able to record their purchase history and peronalise their delivery details for future purchases.  Registered users are also able to perform a forgotton password request form the sign in page.
-- blog
+- The site hosts a blog that can be updated by site Admins. 
 
 ### **Future Features**
 
-- Forum
-- product rating
-- personalised message
+- Forum so vistors and members can discuss artwork, blog posts, upcoming events and the subjects of Jeremy's inspiration.
+- Product rating for logged in users who have made a purchase.
+- The ability to add a personalised message from Jeremy on any purchases made.
 
 ## **Technologies Used**
-
--   allauth
 
 #### Languages
 
@@ -319,13 +319,141 @@ An Amazon [S3 bucket](https://aws.amazon.com/s3/) account is required as a repos
 
 21. This should deploy the app to Heroku successfully.  To view the app, within Heroku, click the Open App button.
 
+## **Testing**
+
+### Tools
+
+The W3C Markup Validator and W3C CSS Validator Services were used to validate the HTML and CSS of the project. 
+
+- [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+- Errors were found with HTML checker
+
+    - Bad value 200px for attribute width on element img: Expected a digit but saw p instead. This is ignored as the images in question need the width defined and no issues were detected.
+    - End tag for body seen, but there were unclosed elements.  This is ignored as I believe this to be a false positive.  No errors were highlighted in GitPod and the page renders as intended.  This is possibly caused by the fixed footer div that was implemented.  A manual search of the fully rendered home page revealed no issues.
+    - Unclosed element div. Again, the same result as above.  The pages render correctly and is possibly related to the fix applied for fixed footer.
+
+- Errors were found with CSS checker
+
+    - Same color for background-color and border-right-color.  This is not fixed as this is a deliberate choice for button design.
+    - 	-webkit-radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%) is an unknown vendor extension.  This is not fixed as the colored Instagram logo renders as desired.
+    - -webkit-background-clip is an unknown vendor extension.  The same as bove.  The logo renders correctly so no fix implemented.
+
+The Esprima JavaScript Syntax Validator & JSHint were used to validate the JavaScript of the project. No errors were found.
+
+- [Esprima JavaScript Syntax Validator](https://esprima.org/demo/validate.html)
+- [JSHint](https://jshint.com/)
+
+The PEP8 Online & ExtendsClass Python Syntax Checker were used to validate the Python of the project. No errors were found.
+
+- [ExtendsClass Python Syntax Checker](https://extendsclass.com/python-tester.html)
+- [PEP8 online](http://pep8online.com/)
+
+Lighthouse in Chrome Devtools was used to test website performance, bestpractices, accessibility and SEO
+
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+
+### Testing User Stories
+
+- #### Non-registered and registered users
+
+    1. View products so i can select items to purchase:
+
+        - Upon entering the site, the users are presented with three ways to navigate to the products page - a large button in the site banner, through the navbar and another button further down the homepage.
+
+    2. Sort products by category, price (ascending and descending) and sort products alphabetically (ascending and descending):
+
+        - Once a user has navigated to the products page, positioned at the top of the list of available products is a dropdown box to enable sorting.  This box remains at the top of the products page at all times and on all screen sizes.  The navbar has a dropdown option to show particular categories or all items.  Users are also able to click a category in a product's details to also view all other items in that category.
+
+    3. Search for specific product using keywords:
+
+        - The searchbox is situated in a dropdown in the sticky navbar meaning it is always accessible no matter where the user is situated in the site.
+
+    4. View individual product details to easily see price, description and image:
+
+        - Clicking on a product in the main product view will take the user to a detailed page for that product which includes description, larger image, and more detailed information of the product.
+
+    5. View site owners blog:
+
+        - The blog is available form the navbar and from another button on the home page.
+
+    6. Register for an account or login:
+
+        - Account functions are available from the navbar Account dropdown and there is also a button on the homepage to take a user to the signup/signin pages.
+
+    7. View current items in my shopping cart:
+
+        - The shopping cart is situated to the right of the fixed navbar and as such is always available to a visitor regardless of where they are located in the site.
+
+- #### Registered users
+
+    1. Ability to login/logout:
+
+        - Through the account dropdown in the navbar users are able to login or logout depending on their current signed in status.
+
+    2. Ability to reset a forgotten password:
+
+        - The signin page has a forgotten password link.  This is handled by Allauth and the user recieves an email on forgotten password request.
+
+    3. View previous purchase history:
+
+        - Upon login, the user is presented with an option in the account navbar dropdown to view "my profile.  This page contains default delivery information and previous purchase history.
+
+- #### Site owner/Administrator
+
+    1. Login to administration panel:
+
+        - By appending /admin to the homepage URL the user is presented with the Django administration login page.
+
+    2. Within the administration panel be able to manage site users, products orders and blog posts:
+
+        - The Django admin panel contains full functionality to be able to add, edit and & delete, users, products, categories, orders and blog posts.
+
+    3. add, edit and remove existing products for sale & add, edit and remove blog posts:
+
+        - When an admin user is logged in, they are presented with additional controls on the product pages and blog page.  There is an additional item in the accout dropdown menu in the navbar for 'Product management' whicj allows the user to add a new product.  There are edit and delete buttons visible on each item both in the all products views and in the individual products view. Within the blog page there is an add post button in the page banner and each individual blog post has its own edit and delete buttons.
+
+### Further Testing
+
+- The website was tested on Google Chrome, Internet Explorer, old Microsoft Edge, new Microsoft Edge and Mozilla Firefox browsers for desktop. In each of the browsers, the following were tested to ensure functionality:
+
+    - Login & logout
+    - View all pages
+    - Register
+    - Purchase a product through to completion
+
+- The website was tested on Google Chrome, Safari, Samsung Internet and Amazon Silk on mobile devices. In each of the browsers, the following were tested to ensure functionality:
+
+    - Login & logout
+    - View all pages
+    - Register
+    - Purchase a product through to completion
+
+- The website was viewed on a variety of devices such as Windows Desktop, Windows Laptop, Samsung S8, Samsung S20, Samsung S3 tablet, Motorola G4, Amazon Fire, iPhone7, iPhone 8.
+- All text input fields were tested with no text, quantities of text that did not meet minimum length requirements and quantities of text exceeding the maximum length requirements. For fields labelled as required, the correct response was returned by the browser. For minimum and maximum requirements the expected tooltip response was returned by the browser.
+- For login, an incorrect username and incorrect password were supplied to the login form. The expected 'invalid credential' flash message was shown on each incorrect attempt.
+- The search function located in the navigation bar was tested with single characters, special characters and paragraphs of text.  The expected response was returned each time.  If results were available they would be returned, if there were no results the correct warning would be presented to the user.
+- Frequent tests were undertaken after major code changes to ensure cross-browser and cross-device compatibility.
+- Friends and family members of ages ranging from 15 to 73, were asked to review the site and documentation to point out any bugs and/or user experience issues.
+- Google Lighthouse developer tool in Google Chrome dev tools was used to ensure pages meet best practice.
+
+### Known Bugs and Resolutions if Applicable
+
+- The product page was rendered using Django template logic.  This caused difficulty is setting images and buttons at equal height.  Default width was supplied to images to attempt to overcome this, but at the moment, the best method is to ensure the image is supplied with equal height and width to make sure it doesn't overrun it's allotted space.  Long term this is probably an unsustainable resolution and requires rebuilding the products page.
+- Clicking add to cart from the products page redirects the user back to the products page, but if they have sorted results the sorting is forgotten and the user is presented back with the default sorting method.  This remains unfixed.
+- W3 HTML checker reports unclosed div.  I am unable to find the div in question and believe it to be a false result.  The all pages render as expected.
+
 ## **Credits**
 
 #### Content
 
+All content is reproduced with express permission of JJ Mason.
 
 #### Media
 
+All media is supplied by site creator.
 
 #### Acknowledgments
 
+My wife for looking after the kids all those nights I couldn't.  I am in bedtime debit.. Jeremy Mason for letting me use his artwork. Jo Mason for assisting with the course.  My mentor Antonio for having positive words.
