@@ -30,11 +30,15 @@
                                         href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
                                 </p>
                                 {% endif %}
-
+                                
+                                {% if product.original_author %}
                                 <p class="mb-1"><span class="font-weight-bold">Original Author:
                                     </span>{{product.original_author}}</p>
+                                {% endif %}
+                                {% if product.illustrator %}
                                 <p class="mb-1"><span class="font-weight-bold">Illustrator:
                                     </span>{{product.illustrator}}</p>
+                                {% endif %}
                                 {% if product.publisher %}
                                 <p class="mb-1"><span class="font-weight-bold">Publisher: </span>{{product.publisher}}
                                 </p>
@@ -75,6 +79,9 @@
                                         </div>
                                         <div class="col-12">
                                             <a href="{% url 'products' %}" class="btn btn-transparent btn-spacer">
+                                                <span class="icon">
+                                                    <i class="fas fa-angle-left"></i>
+                                                </span>
                                                 <span>Keep Shopping</span>
                                             </a>
                                             <input type="submit" class="btn btn-solid btn-spacer" value="Add to cart">
@@ -90,18 +97,17 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-sm-6 d-flex justify-content-center">
-                                <a class="btn btn-solid btn-spacer"
-                                                href="{% url 'edit_product' product.id %}">Edit item</a>
+                                <a class="btn btn-solid btn-spacer" href="{% url 'edit_product' product.id %}">Edit
+                                    item</a>
                             </div>
                             <div class="col-sm-6 d-flex justify-content-center">
-                                <a class="btn btn-delete"
-                                                href="{% url 'delete_product' product.id %}">Delete item</a>
+                                <a class="btn btn-delete" href="{% url 'delete_product' product.id %}">Delete item</a>
                             </div>
                         </div>
                     </div>
                     {% endif %}
                 </div>
-                
+
             </div>
         </div>
     </div>
