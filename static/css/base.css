@@ -86,6 +86,30 @@ a:hover {
     border: 1px solid #fa3b3b;
 }
 
+.btn-black {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+.btn-black:hover {
+        background-color: transparent;
+    color:#ffffff;
+    border: 1px solid #000000;
+}
+
+.btn-banner {
+    background-color: #731ced;
+    color:#ffffff;
+    border: 1px solid #731ced;
+}
+
+.btn-banner:hover {
+        background-color: transparent;
+    color:#ffffff;
+    border: 1px solid #731ced;
+}
+
 .btn-spacer {
     margin-right: 15px;
 }
