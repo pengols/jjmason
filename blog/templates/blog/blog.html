@@ -10,7 +10,7 @@
                 <h1 class="title display-4">My thoughts</h1>
                 {% if request.user.is_superuser %}
             <span class="text-center d-inline-block">
-                    <a class="btn btn-solid" href="{% url 'add_post' %}">Add new post</a>
+                    <a class="btn btn-banner" href="{% url 'add_post' %}">Add new post</a>
                 </span>
             {% endif %}
             </div>
