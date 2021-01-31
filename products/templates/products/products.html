@@ -112,14 +112,16 @@
                     </form>
                     {% endif %}
                     {% if request.user.is_superuser %}
-                    <div class="row mt-3">
-                        <div class="col">
-                            <a class="btn btn-transparent" href="{% url 'edit_product' product.id %}">Edit</a>
+                    
+                        <div class="row mt-2">
+                            <div class="col-sm-6 d-flex justify-content-center">
+                            <a class="btn btn-transparent btn-spacer" href="{% url 'edit_product' product.id %}">Edit</a>
                         </div>
-                        <div class="col">
-                            <a class="btn btn-delete" href="{% url 'delete_product' product.id %}">Delete</a>
+                        <div class="col-sm-4 d-flex justify-content-center">
+                            <a class="btn btn-delete btn-spacer" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>
                     </div>
+                    
                     {% endif %}
                 </div>
             </div>
