@@ -479,6 +479,9 @@ select:invalid {
     .display-4 {
         font-size: 2.5rem;
     }
+    .print-size-selector {
+        margin-bottom: 10px;
+    }
 }
 
 @media only screen and (max-width: 991px) {
