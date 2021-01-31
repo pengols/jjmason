@@ -26,11 +26,13 @@
 
 **<details><summary> Technologies</summary>**
   - [Languages](#languages)
-  - [Frameworks, Libraries & Programs](#frameworks-libraries-programs)
+  - [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
 </details>
 
 **<details><summary> Deployment</summary>**
-  - [Deploy to Heroku](#deploy-to-heroku)
+  - [Forking the GitHub Repository](#forking-the-github-repository)
+  - [Making a Local Clone](#making-a-local-clone)
+  - [Deploying to Heroku](#deploying-to-heroku)
 </details>
 
 **<details><summary> Testing</summary>**
@@ -126,7 +128,7 @@ Site owner/Administrator
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 - [Python](https://www.python.org/)
 
-#### Frameworks, Libraries & Programs
+#### Frameworks Libraries and Programs Used
 
 
 - [Google Fonts:](https://fonts.google.com/)
@@ -186,7 +188,7 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-### Heroku Deployment
+### Deploying to Heroku
 
 An Amazon [S3 bucket](https://aws.amazon.com/s3/) account is required as a repository for STATIC and MEDIA files for this project.
 
