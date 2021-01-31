@@ -432,6 +432,13 @@ select:invalid {
     margin-bottom: 0px;
 }
 
+/* cart */
+
+.mobile-cart-container {
+    background-color: #ffffff;
+    border: 1px solid #7c7c7c;
+}
+
 /* footer */
 
 .footer {
