@@ -111,19 +111,19 @@
                         </div>
                     </form>
                     {% endif %}
-                    {% if request.user.is_superuser %}
-                    
+                </div>
+                {% if request.user.is_superuser %}
+                    <div class="card-footer">
                         <div class="row mt-2">
                             <div class="col-sm-6 d-flex justify-content-center">
-                            <a class="btn btn-transparent btn-spacer" href="{% url 'edit_product' product.id %}">Edit</a>
+                            <a class="btn btn-transparent btn-spacer mt-1" href="{% url 'edit_product' product.id %}">Edit</a>
                         </div>
-                        <div class="col-sm-4 d-flex justify-content-center">
-                            <a class="btn btn-delete btn-spacer" href="{% url 'delete_product' product.id %}">Delete</a>
+                        <div class="col-sm-6 d-flex justify-content-center">
+                            <a class="btn btn-delete btn-spacer mt-1" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>
                     </div>
-                    
+                    </div>
                     {% endif %}
-                </div>
             </div>
         </div>
         {% endfor %}
