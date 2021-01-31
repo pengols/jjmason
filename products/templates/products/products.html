@@ -74,10 +74,11 @@
                 <div class="card-body">
                     <p class="card-text">{{product.description|safe|truncatewords:"20"}}<a
                             href="{% url 'single_product' product.id %}">read more</a></p>
-                    <p><strong>Price:</strong> £{{product.price}}</p>
+                            <hr class="mt-1 mb-1">
+                    <p class="mb-1"><strong>Price:</strong> £{{product.price}}</p>
                     {% if product.category %}
-                    <a
-                        href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a>
+                    <p><strong>Category: </strong><a
+                        href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></p>
                     {% endif %}
 
                     {% if product.category|stringformat:"s" == 'paintings' %}
@@ -101,7 +102,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 ">
-                                    <input type="submit" class="btn btn-solid" value="Add to cart">
+                                    <button class="btn btn-solid" type="submit">Add to cart&nbsp;<span class="icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </span></button>
                                 </div>
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
