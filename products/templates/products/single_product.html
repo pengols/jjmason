@@ -91,13 +91,15 @@
                                             </span>
                                         </div>
                                         <div class="col-12">
-                                            <input type="submit" class="btn btn-solid btn-spacer" value="Add to cart">
                                             <a href="{% url 'products' %}" class="btn btn-transparent btn-spacer">
                                                 <span class="icon">
                                                     <i class="fas fa-angle-left"></i>
                                                 </span>
                                                 <span>Keep Shopping</span>
                                             </a>
+                                            <button class="btn btn-solid" type="submit">Add to cart&nbsp;<span class="icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </span></button>
                                         </div>
                                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                         {% endwith %}
