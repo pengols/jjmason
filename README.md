@@ -93,6 +93,9 @@ Site owner/Administrator
 
 ### **<u>Wireframes</u>**
 
+- [Desktop home and product view](https://github.com/pengols/jjmason/blob/master/documentation/wireframes/dt.jpg)
+- [Mobile home & blog & tablet product view](https://github.com/pengols/jjmason/blob/master/documentation/wireframes/tabmob.jpg)
+
 ## **Features**
 
 ### **Current Features**
