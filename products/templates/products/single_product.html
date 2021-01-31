@@ -13,7 +13,8 @@
                         <div class="row d-flex flex-wrap align-items-center">
                             <div class="col-lg-6 d-flex justify-content-center">
                                 {% if product.image %}
-                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <a href="{{ product.image.url }}" target="_blank">
+                                <img class="img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"></a>
                                 {% else %}
                                 <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 {% endif %}
