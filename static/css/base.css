@@ -291,10 +291,7 @@ select:invalid {
     background-color: rgb(135, 196, 214);
 }
 
-.checkout-col {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+
 
 .secure-checkout-btn {
     margin-bottom: 10px;
@@ -479,10 +476,7 @@ select:invalid {
     .print-size-selector {
         margin-bottom: 10px;
     }
-    .checkout-col {
-        padding-left: 0;
-        padding-right: 0;
-    }
+    
 }
 
 /* reduces banner text size to stop overflow */
