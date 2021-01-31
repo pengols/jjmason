@@ -53,11 +53,16 @@ Using HTML, CSS, JavaScript, Python & Django, the site is designed to provide a 
 
 ### **<u>Design</u>**
 
-**Structure**
-
-
 **Colour scheme**
 
+<div align="center">
+  <img src="https://github.com/pengols/jjmason/blob/master/documentation/images/color.PNG"></div>
+
+  The site is purposefully designed with a predominantly black and white theme.  This is due to the nature of the content, which is artwork and I wanted that to be the primary focus for the reader. There are minimal flashes of color to help a user navigate the site.  Primary action buttons are a deep purple (#731CED), secondary buttons are a lighter purple (#FF5CD1).
+
+  The home page adds a third variant of purple for the action boxes (#CB6CEC).
+
+  Form borders are higlighted in grey (#7c7c7c) rather than black to make them softer, and delete buttons are red (#fab3b) to ensure they stand out and the user can quickly understand their function.
 
 **Typography**
 
