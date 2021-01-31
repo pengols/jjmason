@@ -72,7 +72,7 @@
                 {% endif %}
 
                 <div class="card-body">
-                    <p class="card-text">{{product.description|safe|truncatewords:"10"}}<a
+                    <p class="card-text">{{product.description|safe|truncatewords:"20"}}<a
                             href="{% url 'single_product' product.id %}">read more</a></p>
                     <p><strong>Price:</strong> £{{product.price}}</p>
                     {% if product.category %}
