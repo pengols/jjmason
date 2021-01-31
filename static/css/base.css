@@ -414,6 +414,13 @@ select:invalid {
     background-color: #ffffff;
 }
 
+/* order summary */
+
+.order-summary {
+    background-color: #ffffff;
+    border: 1px #7c7c7c solid;
+}
+
 /* user profile */
 
 .table-responsive {
