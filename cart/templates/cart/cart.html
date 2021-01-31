@@ -18,9 +18,9 @@
     <div class="row">
         <div class="col">
             {% if cart_items %}
-
             <div>
                 {% for item in cart_items %}
+                <!-- mobile cart view -->
                 <div class="d-block d-sm-none mobile-cart-container">
                     <div class="row">
                         <div class="col-12 col-sm-4 mb-2 text-center">
@@ -34,16 +34,20 @@
                         </div>
                         <div class="col-12 col-sm-4 mb-2 text-center">
                             <p class="my-0"><strong>Name: </strong>{{ item.product.name }}</p>
-                            <p class="my-0"><strong>Size: </strong>{% if item.product.print_sizes %}{{ item.print_size }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0"><strong>Size:
+                                </strong>{% if item.product.print_sizes %}{{ item.print_size }}{% else %}N/A{% endif %}
+                            </p>
                             <p class="my-0"><strong>Price Each:</strong> £{{ item.product.price }}</p>
                             <p class="my-0"><strong>Quantity:</strong> {{ item.quantity }}</p>
-                            <p class="my-0"><strong>Subtotal: </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0"><strong>Subtotal:
+                                </strong>${{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                         <div class="col-12 col-sm-4 mb-2 text-center justify-content-center d-flex">
                             {% include "cart/cart-delete.html" %}
                         </div>
                     </div>
                 </div>
+                <!-- medium and above cart view -->
                 <div class="row">
                     <div class="col">
                         <div class="table-responsive rounded d-none d-sm-block">
