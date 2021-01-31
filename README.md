@@ -20,8 +20,8 @@
 </details>
 
 **<details><summary> Features</summary>**
-  - [Features used](#features-used)
-  - [Future Features](#to-do-list)
+  - [Current Features](#current-features)
+  - [Future Features](#future-features)
 </details>
 
 **<details><summary> Technologies</summary>**
@@ -76,14 +76,14 @@ The site uses two fonts, both available from [Google Fonts](https://fonts.google
 ### **<u>User Stories</u>**
 
 Non-registered and registered users:
-- view products so i can select items to purchase
+- view products so I can select items to purchase
 - sort products by category, price (ascending and descending) and sort products alphabetically (ascending and descending)
 - search for specific product using keywords
 - view individual product details to easily see price, description and image, product rating, and availability
 - view site owners blog
 - register for an account or login 
 - view current items in my shopping cart
-- complete a purchase and recieve a confirmation email
+- complete a purchase and receive a confirmation email
 
 
 Registered users 
