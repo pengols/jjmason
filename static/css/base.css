@@ -247,9 +247,7 @@ select:invalid {
 /* about section */
 
 .about-row {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
+    background-color: #ffffff;
 }
 
 .about-img {
@@ -259,11 +257,18 @@ select:invalid {
 /* home page action boxes */
 
 .action-col {
-    padding: 70px 0;
     text-align: center;
 }
 
-.action-col-left {
+.action-card-left,
+.action-card-center,
+.action-card-right {
+    padding: 70px 10px;
+}
+
+
+
+/* .action-col-left {
     background-color: #FF5CD2;
 }
 
@@ -273,7 +278,7 @@ select:invalid {
 
 .action-col-right {
     background-color: #A76AFC;
-}
+} */
 
 /* toasts */
 

@@ -25,11 +25,10 @@
 
 <!-- action boxes -->
 
-<div class="container-fluid text-center">    
-
+<div class="container text-center">    
   <div class="row">
-    <div class="col-sm-4">
-      <div class="card">
+    <div class="col-sm-4 action-col">
+      <div class="card action-card-left">
           <h2 class="title">Jeremy's thoughts</h2>
         <p>Musings and artwork</p>
         <div class="row">
@@ -40,7 +39,7 @@
       </div>
     </div>
 <div class="col-sm-4">
-      <div class="card">
+      <div class="card action-card-center">
           <h2 class="title">Jeremy's things</h2>
         <p>Browse the shop</p>
         <div class="row">
@@ -51,7 +50,7 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class="card">
+      <div class="card action-card-right">
           <h2 class="title">Register here</h2>
         <p>Become a member</p>
         <div class="row">
@@ -64,42 +63,12 @@
   </div>
 </div>
 
-<div class="row action-row w-100 no-gutters">
-    <div class="col-sm-4 action-col action-col-left">
-        <h2 class="title">Jeremy's thoughts</h2>
-        <p>Musings and artwork</p>
-        <div class="row">
-            <div class="col-12 text-center justify-content-center d-flex">
-                <a class="btn btn-black" href="{% url 'blog' %}" role="button">Thoughts</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 action-col action-col-center">
-        <h2 class="title">Jeremy's things</h2>
-        <p>Browse the shop</p>
-        <div class="row">
-            <div class="col-12 text-center justify-content-center d-flex">
-                <a class="btn btn-black" href="{% url 'products' %}" role="button">Things</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-4 action-col action-col-right">
-        <h2 class="title">Register here</h2>
-        <p>Become a member</p>
-        <div class="row">
-            <div class="col-12 text-center justify-content-center d-flex">
-                <a class="btn btn-black" href="{% url 'account_signup' %}" role="button">Join</a>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- stops about focus being pushed behind header -->
 <div id="about"></div>
-
-
 <hr>
+
 <!-- About -->
-<div class="about-section">
+<div class="about-section container">
     <div class="row about-row">
         <div class="col text-center">
             <div class="row d-flex align-items-center">
