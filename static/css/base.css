@@ -247,7 +247,10 @@ select:invalid {
 /* about section */
 
 .about-row {
-    background-color: #ffffff;
+    background-image: url("/media/J&Jabout.jpg");
+     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .about-img {
@@ -264,21 +267,20 @@ select:invalid {
 .action-card-center,
 .action-card-right {
     padding: 70px 10px;
+    border-radius: 20px;
 }
 
-
-
-/* .action-col-left {
-    background-color: #FF5CD2;
+.action-card-left {
+    border: 3px solid #FF5CD2;
 }
 
-.action-col-center {
-    background-color: #CB6CEC;
+.action-card-center {
+    border: 3px solid #CB6CEC;
 }
 
-.action-col-right {
-    background-color: #A76AFC;
-} */
+.action-card-right {
+    border: 3px solid #A76AFC;
+} 
 
 /* toasts */
 
@@ -536,3 +538,15 @@ select:invalid {
     }
 }
 
+/* creates margin & reduces padding on action cards index.hml  */
+@media only screen and (max-width: 576px) {
+  .action-card-center,
+  .action-card-left,
+  .action-card-right {
+    padding: 20px 10px;
+    border-radius: 20px;
+    }
+  .action-col {
+    margin-bottom: 10px;
+    }
+}
