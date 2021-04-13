@@ -246,15 +246,17 @@ select:invalid {
 
 /* about section */
 
-.about-row {
+/* .about-section {
     background-image: url("/media/J&Jabout.jpg");
      background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 .about-img {
-    max-height: 400px;
+    margin: auto;
+    max-height: 600px;
+    display: block;
 }
 
 /* home page action boxes */
